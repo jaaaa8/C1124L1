@@ -1,0 +1,3 @@
+function hientinhan() {
+    alert("TRIDEPTRAI");
+}

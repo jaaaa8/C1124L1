@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diện tích hình tròn</title>
+</head>
+<body>
+  <input placeholder="Ban kinh:" id="r">
+  <br>
+  <button onclick="tinhdDientich()">Tính diện tích</button>
+  <p id="ketqua"></p>
+  <script>
+    function tinhdDientich() {
+      var r = document.getElementById("r").value;
+      var dientich = Math.pow(parseInt(r),2)*Math.PI;
+      document.getElementById("ketqua").innerHTML = "Dien tich hinh tron co ban kinh "+ r +" là "+dientich.toFixed(2);
+    }
+  </script>
+</body>
+</html>

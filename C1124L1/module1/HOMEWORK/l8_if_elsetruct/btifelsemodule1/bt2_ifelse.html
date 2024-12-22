@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DU TUOI LOP 10</title>
+  <style>
+    .baoloi{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<input placeholder="Nhap tuoi" id="age">
+<br>
+<button onclick="kiemTRATUOI()">Kiem tra</button>
+<p id="result"></p>
+<script>
+  function kiemTRATUOI(){
+    let age = +document.getElementById("age").value;
+    if(isNaN(age)){
+      document.getElementById("result").innerHTML = "Vui long nhap dung gia tri";
+      document.getElementById("result").className = "baoloi";
+      return;
+    }
+    if(age < 15){
+      document.getElementById("result").innerHTML = "Hoc sinh nay khong du tuoi.";
+      document.getElementById("result").className = "baoloi";
+    }else{
+      document.getElementById("result").innerHTML = "Hoc sinh nay du tuoi.";
+      document.getElementById("result").className = "";
+    }
+  }
+</script>
+</body>
+</html>

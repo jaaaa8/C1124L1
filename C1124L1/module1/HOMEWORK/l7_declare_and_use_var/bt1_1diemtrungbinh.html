@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DTB</title>
+</head>
+<body>
+    <input placeholder="Nhap diem toan: " id="toan">
+    <br>
+    <input placeholder="Nhap diem ly: " id="ly">
+    <br>
+    <input placeholder="Nhap diem hoa: " id="hoa">
+    <button onclick="diemTrungBinh()">Tinh diem trung binh</button>
+    <p id="ketQua"></p>
+    <script>
+        function diemTrungBinh() {
+            let toan = document.getElementById("toan").value;
+            let ly = document.getElementById("ly").value;
+            let hoa = document.getElementById("hoa").value;
+            toan = parseFloat(toan);
+            ly= parseFloat(ly);
+            hoa= parseFloat(hoa);
+            document.getElementById("ketQua").innerText=(toan+ly+hoa)/3;
+        }
+    </script>
+</body>
+</html>

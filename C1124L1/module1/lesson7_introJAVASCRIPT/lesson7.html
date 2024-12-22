@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 7 Introduction JS</title>
+</head>
+<body>
+<h1 id="heading">Tổng quan Javascript</h1>
+<ol>
+    <li>Nhúng script trực tiếp vào tệp HTML sử dụng thẻ script</li>
+    <li>Nhúng script trực tiếp vào thẻ HTML</li>
+    <li>Nhúng tệp .js từ bên ngoài</li>
+</ol>
+<button onclick="alert('Xin chào C1124L1');">
+    Click here!
+    <img id="gdragon" width="64px" src="gdragon.png" alt="">
+</button>
+<div id="TRI TOI` TE"></div>
+<!--Sử dụng đường dẫn tuyệt đối-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<!--Sử dụng đường dẫn tương đối-->
+<script src="app.js"></script>
+<script>
+    // internal
+    /*
+    alert("Xin chào C1124L1");
+    prompt("Vui lòng nhập tên của bạn: ");
+    confirm("Bạn có đồng ý lấy tớ không?");
+     */
+    console.log("Đừng iu tui");
+    document.write('BAD BOI');
+    document.getElementById("thong bao").innerHTML = "tOI CHAN DOI";
+    $("#heading").html("Lesson 7 Introduction JavaScript!");
+    document.getElementById("heading").style.color = 'red';
+    document.getElementById("gdragon").src = 'https://cf.shopee.vn/file/vn-11134258-7ras8-m3m0v3m7ri64d9';
+</script>
+</body>
+</html>

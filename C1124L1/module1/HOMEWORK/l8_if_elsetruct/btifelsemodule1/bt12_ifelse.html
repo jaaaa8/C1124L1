@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh lai ngan hang</title>
+</head>
+<body>
+<input placeholder="Nhap so tien lai ban dau" id="base_debt"><br>
+<input placeholder="So thang cho vay" id="time_month"><br>
+<input placeholder="Lai suat hang thang" id="interest_per_month"><br>
+<button onclick="countInterest()">Tinh tien lai</button>
+<p id="result"></p>
+<script>
+    function countInterest() {
+        let base_debt = +document.getElementById("base_debt").value;
+        let time_month = +document.getElementById("time_month").value;
+        let interest_per_month = +document.getElementById("interest_per_month").value / 100; //chuyen lai suat sang %
+        let debt = 0;
+        if (isNaN(base_debt) || isNaN(time_month) || isNaN(interest_per_month) || base_debt <= 0 || interest_per_month <= 0 || time_month <= 0 ) {
+            alert("Hay nhap thong tin hop le!");
+        }
+        if (time_month >= 1) {
+            debt = countDebt(base_debt, time_month, interest_per_month);
+        } else if (time_month <= 0) {
+            alert("So thang phai lon hon 1");
+        }
+        document.getElementById("result").innerHTML = "So tien no ngan hang la " + debt.toFixed(2);
+    }
+
+    function countDebt(tong_tien, so_thang, tien_lai_hang_thang) {
+        for (let i = 1; i <= so_thang; i++) {
+            tong_tien = tong_tien + (tong_tien * tien_lai_hang_thang);
+        }
+        return tong_tien;
+    }
+</script>
+</body>
+</html>

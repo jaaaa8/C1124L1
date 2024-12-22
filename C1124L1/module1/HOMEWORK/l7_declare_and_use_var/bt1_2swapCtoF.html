@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doi do C (Celsius) sang F (Fahrenheit)</title>
+</head>
+<body>
+  <input type="number" placeholder="Nhập độ C" id="Celsius">
+  <button onclick="swapCtoF()">Đổi sang độ F</button>
+  <p id="ketqua"></p>
+<script>
+    function swapCtoF() {
+        var C = document.getElementById("Celsius").value;
+        var F = parseFloat(C) * (9/5) + 32;
+        document.getElementById("ketqua").innerText="Kết quả là " + F;
+    }
+</script>
+</body>
+</html>

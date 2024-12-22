@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XEP HANG</title>
+</head>
+<body>
+<input placeholder="Nhap diem kiem tra 15'" id="test">
+<input placeholder="Nhap diem kiem tra giua ki '" id="midterm">
+<input placeholder="Nhap diem kiem tra cuoi ki '" id="final">
+<br>
+<button onclick="xepLoai()">Kiem tra</button>
+<p id="result"></p>
+<script>
+    function xepLoai(){
+        let test = +document.getElementById("test").value;
+        let midterm = +document.getElementById("midterm").value;
+        let final = +document.getElementById("final").value;
+        let avg = (test+midterm*2+final*3)/6;
+        if(isNaN(test)||isNaN(midterm)||isNaN(final)){
+            alert("Hay nhap thong tin hop le!");
+        }
+        if(test<0||test>10||midterm<0||midterm>10||final<0||final>10){
+            alert("Ha nhap thong tin hop le!");
+        }
+        if(avg<=10&&avg>=8){
+            document.getElementById("result").innerHTML="Hoc sinh gioi";
+        }else if(avg<8&&avg>=6.5){
+            document.getElementById("result").innerHTML="Hoc sinh kha";
+        }else if(avg<6.5&&avg>=5){
+            document.getElementById("result").innerHTML="Hoc sinh trung binh";
+        }else{
+            document.getElementById("result").innerHTML="Hoc sinh yeu";
+        }
+    }
+</script>
+</body>
+</html>

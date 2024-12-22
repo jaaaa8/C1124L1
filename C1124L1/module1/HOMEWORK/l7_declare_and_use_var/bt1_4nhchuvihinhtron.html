@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh chu vi hinh tron</title>
+</head>
+<body>
+    <input placeholder="Nhập bán kính" id="r">
+    <button onclick="tinhCHUVI()">Tính chu vi</button>
+    <p id="ketqua"></p>
+<script>
+    function tinhCHUVI(){
+        var r = document.getElementById("r").value;
+        var chuvi = parseInt(r)*2*Math.PI;
+        document.getElementById("ketqua").innerHTML="Chu vi của hình tròn có bán kính "+ r+" là "+chuvi.toFixed(2);
+    }
+</script>
+</body>
+</html>

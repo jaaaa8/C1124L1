@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SIMPLE TABLE</title>
+    <style>
+      .row {
+        display: flex; /*để giữ các phần tử con nằm trên 1 hàng*/
+        justify-content: space-between; /*Đẩy các phần tử sang hai bên (một phần tử về trái, một phần tử về phải)*/
+        align-items: center;
+      }
+      .p1{
+        margin-left: 80px;
+        font-size: 20px;
+        color: dodgerblue;
+      }
+      .p2{
+        margin-right: 80px;
+        font-size: 20px;
+        color: dodgerblue;
+      }
+      table{
+        border-collapse: collapse;
+        border: 1px solid black;
+        text-align: center;
+        width: 95%;
+      }
+      td{
+        width: 120px;
+        height: 30px;
+      }
+    </style>
+</head>
+<body>
+  <h1 align="center">THỜI KHOÁ BIỂU</h1>
+  <div class="row">
+    <p class="p1">Lớp C1124L1</p>
+    <p class="p2">Thời gian học: 13h30 - 17h30</p>
+  </div>
+  <div class="row">
+    <p class="p1">Giáo viên: Chánh Đẹp Trai</p>
+    <p class="p2">Ngày học: Thứ 3,5,7</p>
+  </div>
+  <p class="p1">Phòng học: Class3/Lab3</p>
+  <table align="center" border="1">
+    <tr bgcolor="#ffd700">
+      <td ><strong>Thứ 3</strong></td>
+      <td ><strong>Thứ 5</strong></td>
+      <td ><strong>Thứ 7</strong></td>
+    </tr>
+    <tr>
+      <td >CF - T1, L1</td>
+      <td >CF - T2, L2</td>
+      <td >CF - T3, L3</td>
+    </tr>
+    <tr>
+      <td >CF - T4, L4</td>
+      <td >CF - Written Test</td>
+      <td >C - T1, L1</td>
+    </tr>
+  </table>
+</body>
+</html>

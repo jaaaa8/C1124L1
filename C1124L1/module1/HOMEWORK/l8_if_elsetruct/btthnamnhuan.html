@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT Nam nhuan</title>
+</head>
+<body>
+    <input placeholder="Nhập năm muốn xác nhận " id="year">
+    <button onclick="timNAMNHUAN()"> Có phải năm nhuận không?</button>
+    <p id="ketqua"></p>
+  <script>
+      function timNAMNHUAN() {
+          let year = document.getElementById("year").value;
+          if (year % 100 === 0) {
+              if (year % 400 === 0) {
+                  document.getElementById("ketqua").innerHTML = "Năm " + year + " là năm nhuận";
+              } else {
+                  document.getElementById("ketqua").innerHTML = "Năm " + year + " không phải năm nhuận";
+              }
+          } else if (year % 4 === 0) {
+              document.getElementById("ketqua").innerHTML = "Năm " + year + " là năm nhuận";
+          } else {
+              document.getElementById("ketqua").innerHTML = "Năm " + year + " không phải năm nhuận";
+          }
+
+
+      }
+  </script>
+</body>
+</html>
