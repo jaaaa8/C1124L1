@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BASIC CALCULATOR</title>
+</head>
+<body>
+<input placeholder="Enter a number" id="first">
+<input placeholder="Enter a number" id="second">
+<br>
+<button onclick="add()">ADD</button>
+<button onclick="subtract()">SUBTRACT</button>
+<button onclick="multiply()">MULTIPLY</button>
+<button onclick="divide()">DIVIDE</button>
+<br><br>
+<p id="result"></p>
+<script>
+  function add() {
+    let first = +document.getElementById("first").value;
+    let second = +document.getElementById("second").value;
+    document.getElementById("result").innerHTML = "Result = " + (first + second);
+  }
+  function divide() {
+    let first = +document.getElementById("first").value;
+    let second = +document.getElementById("second").value;
+    if (second === 0) {
+      alert("Cannot divide by 0!");
+    }
+    document.getElementById("result").innerHTML = "Result = " + (first / second);
+  }
+  function multiply() {
+    let first = +document.getElementById("first").value;
+    let second = +document.getElementById("second").value;
+    document.getElementById("result").innerHTML = "Result = " + (first * second);
+  }
+  function subtract() {
+    let first = +document.getElementById("first").value;
+    let second = +document.getElementById("second").value;
+    document.getElementById("result").innerHTML = "Result = " + (first - second);
+  }
+</script>
+</body>
+</html>
