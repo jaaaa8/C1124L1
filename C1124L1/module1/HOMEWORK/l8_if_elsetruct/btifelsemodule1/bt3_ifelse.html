@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COMPARE TO ZERO</title>
+</head>
+<body>
+    <input placeholder="Enter a number" id="number">
+    <button onclick="compare()">Compare</button>
+    <p id="result"></p>
+<script>
+    function compare() {
+        const number = +document.getElementById('number').value;
+        if (isNaN(number)) {
+            alert("Please enter a number!");
+        }
+        if (number > 0) {
+            document.getElementById("result").innerHTML = number +" lớn hơn 0.";
+        }else{
+            document.getElementById("result").innerHTML = number +" bé hơn 0.";
+        }
+    }
+</script>
+</body>
+</html>

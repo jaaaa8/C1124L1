@@ -3,71 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <title>Calculator</title>
+    <style>
+        button{
+            width: 100%;
+            border-radius: 10px;
+        }
+        table{
+            border-collapse: collapse;
+            border: 3px solid black;
+        }
+        .operation{
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 <table border="1">
     <tr>
-        <td colspan="4"><input placeholder="" id="display"></td>
-
-
+        <td colspan="4"><input type="text" id="display"></td>
     </tr>
     <tr>
         <td>
-            <button id="minus">➖</button>
+            <button class="operation" value="-">➖</button>
         </td>
         <td>
-            <button id="divide">➗</button>
+            <button class="operation" value="/">➗</button>
         </td>
         <td>
-            <button id="multiple">✖️</button>
+            <button class="operation" value="*">✖️</button>
         </td>
         <td>
-            <button id="add">➕</button>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <button id="one">1</button>
-        </td>
-        <td>
-            <button id="two">2</button>
-        </td>
-        <td>
-            <button id="three">3</button>
-        </td>
-        <td>
-            <button id="delete">DEL</button>
+            <button class="operation" value="+">➕</button>
         </td>
     </tr>
     <tr>
         <td>
-            <button id="four">4</button>
+            <button class="num" value="1">1</button>
         </td>
         <td>
-            <button id="five">5</button>
+            <button class="num" value="2">2</button>
         </td>
         <td>
-            <button id="six">6</button>
+            <button class="num" value="3">3</button>
         </td>
         <td>
-            <button id="zero">0</button>
+            <button onclick="clearDISPLAY()" id="clear"><strong>C</strong></button>
         </td>
-    </tr>
     </tr>
     <tr>
         <td>
-            <button id="seven">7</button>
+            <button class="num" value="4">4</button>
         </td>
         <td>
-            <button id="eight">8</button>
+            <button class="num" value="5">5</button>
         </td>
         <td>
-            <button id="nine">9</button>
+            <button class="num" value="6">6</button>
         </td>
         <td>
-            <button id="clear">C</button>
+            <button class="num" value="0">0</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="num" value="7">7</button>
+        </td>
+        <td>
+            <button class="num" value="8">8</button>
+        </td>
+        <td>
+            <button class="num" value="9">9</button>
+        </td>
+        <td>
+            <button onclick="result()" id="equal"><strong>=</strong></button>
         </td>
     </tr>
 </table>
+<script>
+    let numBtn = document.querySelectorAll('.num'); //trả về một NodeList, chứa tất cả các phần tử HTML khớp với class .num
+    numBtn.forEach(buttonNUM => {
+        buttonNUM.addEventListener('click', () => {
+            document.getElementById('display').value += buttonNUM.value;
+        })
+    })
+    let operate = document.querySelectorAll('.operation');
+    operate.forEach(buttonOP => {
+        buttonOP.addEventListener('click', () => {
+            document.getElementById('display').value += buttonOP.value;
+        })
+    })
+    function clearDISPLAY(){
+        document.getElementById('display').value = '';
+    }
+    function result(){
+        let result = document.getElementById('display').value;
+        try {
+            // Tính toán và hiển thị kết quả
+            document.getElementById('display').value = eval(result);
+        } catch (e) {
+            // Hiển thị lỗi nếu biểu thức không hợp lệ
+            alert("ERROR");
+        }
+    }
+</script>
 </body>
 </html>

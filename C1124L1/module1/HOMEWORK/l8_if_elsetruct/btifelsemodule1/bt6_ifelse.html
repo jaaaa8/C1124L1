@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TINH HOA HONG</title>
+    <style>
+        .row {
+            display: flex; /* Đặt các phần tử nằm trên một hàng */
+            justify-content: flex-start; /* Đặt tất cả các phần tử về phía trái */
+            align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+            gap: 50px; /* Khoảng cách cố định 20px giữa các phần tử */
+        }
+        .form-group {
+            text-align: center; /* Căn giữa toàn bộ nội dung trong nhóm */
+            margin-bottom: 16px; /* Khoảng cách giữa các nhóm form */
+        }
+        label {
+            display: block; /* Để label chiếm toàn bộ chiều rộng (block element) */
+            font-size: 16px; /* Kích thước chữ của label */
+            font-weight: bold; /* Tùy chọn: Làm đậm chữ */
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="form-group">
+        <label for="doanhthu">Doanh thu</label>
+        <input placeholder="Nhap doanh thu" id="doanhthu">
+    </div>
+    <div class="form-group">
+        <label for="rate">% Hoa hong</label>
+        <input placeholder="Nhap phan tram hoa hong" id="rate">
+    </div>
+</div>
+<button onclick="countHoahong()">Tính</button>
+    <br>
+    <p id="result"></p>
+<script>
+    function countHoahong() {
+        let doanhthu = parseFloat(document.getElementById('doanhthu').value);
+        let rate = parseFloat(document.getElementById('rate').value) / 100;
+        if (doanhthu >= 1000000) {
+            rate += 0.05; // Add bonus rate
+        } else if (doanhthu >= 500000) {
+            rate += 0.02; // Add smaller bonus rate
+        }
+        document.getElementById("result").innerHTML = "Số tiền hoa hồng là " + (doanhthu*rate).toFixed(3) + " VND";
+    }
+</script>
+</body>
+</html>

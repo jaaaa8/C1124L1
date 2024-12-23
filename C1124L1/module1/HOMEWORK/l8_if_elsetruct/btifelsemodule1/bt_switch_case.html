@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra so ngay trong thang</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <label for="month">Tháng</label>
+    <select id="month">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+    <button onclick="tinhSoNgay()">Tính số ngày</button><br><br>
+    <input id="hiddenInput" class="hidden" placeholder="Nhap nam">
+    <br>
+    <p id="result"><strong></strong></p>
+<script>
+    function tinhSoNgay() {
+        let thang = document.getElementById('month').value;
+        switch(thang) {
+            case '1':
+                document.getElementById("result").innerText="Thang 1 có 31 ngày.";
+                break;
+            case '2':
+                showInput();
+                if(timNAMNHUAN()){
+                    document.getElementById("result").innerHTML="Thang 2 năm này có 29 ngày.";
+                }else{
+                    document.getElementById("result").innerHTML="Tháng 2 năm này có 28 ngày.";
+                }
+                break;
+            case '3':
+                document.getElementById("result").innerText="Thang 1 có 31 ngày.";
+                break;
+            case '4':
+                document.getElementById("result").innerText="Thang 1 có 30 ngày.";
+                break;
+            case '5':
+                document.getElementById("result").innerText="Thang 1 có 31 ngày.";
+                break;
+            case '6':
+                document.getElementById("result").innerText="Thang 1 có 30 ngày.";
+                break;
+            case '7':
+                document.getElementById("result").innerText="Thang 1 có 31 ngày.";
+                break;
+            case '8':
+                document.getElementById("result").innerText="Thang 1 có 31 ngày.";
+                break;
+            case '9':
+                document.getElementById("result").innerText="Thang 1 có 30 ngày.";
+                break;
+            case '10':
+                document.getElementById("result").innerText="Thang 1 có 31 ngày.";
+                break;
+            case '11':
+                document.getElementById("result").innerText="Thang 1 có 30 ngày.";
+                break;
+            case '12':
+                document.getElementById("result").innerText="Thang 1 có 31 ngày.";
+                break;
+        }
+    }
+    function showInput() {
+        document.getElementById("hiddenInput").classList.remove("hidden");
+    }
+    function timNAMNHUAN() {
+        let year = document.getElementById("hiddenInput").value;
+        if (year % 100 === 0) {
+            if (year % 400 === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else if (year % 4 === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

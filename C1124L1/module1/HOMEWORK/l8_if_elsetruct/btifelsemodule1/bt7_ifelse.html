@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CALL FEE</title>
+  <style>
+    .row {
+      display: flex; /* Đặt các phần tử nằm trên một hàng */
+      justify-content: flex-start; /* Đặt tất cả các phần tử về phía trái */
+      align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+      gap: 50px; /* Khoảng cách cố định giữa các phần tử */
+    }
+    .form-group {
+      text-align: center; /* Căn giữa toàn bộ nội dung trong nhóm */
+      margin-bottom: 16px; /* Khoảng cách giữa các nhóm form */
+    }
+    label {
+      display: block; /* Để label chiếm toàn bộ chiều rộng (block element) */
+      font-size: 16px; /* Kích thước chữ của label */
+      font-weight: bold; /* Tùy chọn: Làm đậm chữ */
+    }
+  </style>
+</head>
+<body>
+<div class="row">
+  <div class="form-group">
+    <label for="fee_per_min">Tiền cước theo phút
+    </label>
+    <input placeholder="Tiền cước cố định 1 phút" id="fee_per_min">
+  </div>
+  <div class="form-group">
+    <label for="time">Số phút</label>
+    <input placeholder="Nhập số phút sử dụng" id="time">
+  </div>
+</div>
+<button onclick="countFee()">Tính</button>
+<p id="result"></p>
+<script>
+  function countFee() {
+    let fee_per_min = parseFloat(document.getElementById("fee_per_min").value);
+    let time = parseFloat(document.getElementById("time").value);
+    if (time >= 2) {
+      fee_per_min += fee_per_min*0.1;
+    }else if (time >= 5) {
+      fee_per_min += fee_per_min*0.2;
+    }
+    document.getElementById("result").innerHTML = "So tien phi dien thoai phai tra la "+(fee_per_min * time).toFixed(2);
+  }
+</script>
+</body>
+</html>
