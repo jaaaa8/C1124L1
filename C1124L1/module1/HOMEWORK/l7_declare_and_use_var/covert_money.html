@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>EXCHANGE</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    label {
-      font-weight: bold;
-    }
-    select, input, button {
-      width: 100px;
-      margin: 5px 0;
-    }
-    .row {
-      display: flex;
-      /*Khi sử dụng, các phần tử con bên trong container trở thành*/
-      /*các item linh hoạt (flex items),*/
-      /*cho phép sắp xếp theo chiều ngang */
-      justify-content: space-between; /*tạo 1 khoảng trống giữa các item*/
-      margin-bottom: 0; /* Giảm khoảng cách giữa các thẻ div */
-    }
-    .container {
-      width: 600px;
-      margin: 0 auto;
-      padding: 10px;
-    }
-    button {
-      background: dodgerblue;
-      border-radius: 10px;
-      color: white;
-    }
-    p{
-      color: dodgerblue;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>EXCHANGE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        select, input, button {
+            width: 100px;
+            margin: 5px 0;
+        }
+        .row {
+            display: flex;
+            /*Khi sử dụng, các phần tử con bên trong container trở thành*/
+            /*các item linh hoạt (flex items),*/
+            /*cho phép sắp xếp theo chiều ngang */
+            justify-content: space-between; /*tạo 1 khoảng trống giữa các item*/
+            margin-bottom: 0; /* Giảm khoảng cách giữa các thẻ div */
+        }
+        .container {
+            width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        button {
+            background: dodgerblue;
+            border-radius: 10px;
+            color: white;
+        }
+        p {
+            color: dodgerblue;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
-  <div class="row">
-    <div>
-      <label for="amount">Amount</label><br>
-      <input placeholder="" id="amount">
+    <div class="row">
+        <div>
+            <label for="amount">Amount</label><br>
+            <input placeholder="" id="amount">
+        </div>
+        <div>
+            <label for="this_money">From Currency</label><br>
+            <select id="this_money">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </div>
+        <div>
+            <label for="another_money">To Currency</label><br>
+            <select id="another_money">
+                <option value="USD">USD</option>
+                <option value="VND">VND</option>
+            </select>
+        </div>
+        <button onclick="change_money()">Covert</button>
     </div>
-    <div>
-      <label for="this_money">From Currency</label><br>
-      <select id="this_money">
-        <option value="VND">VND</option>
-        <option value="USD">USD</option>
-      </select>
-    </div>
-    <div>
-      <label for="another_money">To Currency</label><br>
-      <select id="another_money">
-        <option value="USD">USD</option>
-        <option value="VND">VND</option>
-      </select>
-    </div>
-    <button onclick="change_money()" >Covert</button>
-  </div>
-  <p id="result" ></p>
+    <p id="result"></p>
 </div>
 <script>
-  function change_money() {
-    let amount = +document.getElementById("amount").value;
-    let this_money = document.getElementById("this_money").value;
-    let another_money = document.getElementById("another_money").value;
-    let result = 0;
-    if (!amount || amount <= 0) {
-      alert("Please enter a valid amount.");
-      return;
+    function change_money() {
+        let amount = +document.getElementById("amount").value;
+        let this_money = document.getElementById("this_money").value;
+        let another_money = document.getElementById("another_money").value;
+        let result = 0;
+        if (isNaN(amount) || amount <= 0) {
+            alert("Please enter a valid amount.");
+            return;
+        }
+        if (this_money === "VND" && another_money === "USD") {
+            result = amount * 0.000039;
+            document.getElementById("result").innerHTML = "Result: " + result + " USD";
+        } else if (this_money === "USD" && another_money === "VND") {
+            result = amount * 25.45494;
+            document.getElementById("result").innerHTML = "Result: " + result + " VND";
+        } else {
+            alert("Value in 2 options must be different.");
+        }
     }
-    if (this_money === "VND" && another_money === "USD") {
-      result = amount*0.000039;
-      document.getElementById("result").innerHTML = "Result: "+result+" USD";
-    }else if (this_money === "USD" && another_money === "VND") {
-      result = amount*25.45494;
-      document.getElementById("result").innerHTML = "Result: "+result+" VND";
-    }else{
-      alert("Value in 2 options must be different.");
-    }
-  }
 </script>
 </body>
 </html>

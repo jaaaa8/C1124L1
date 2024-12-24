@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Age</title>
+</head>
+<body>
+  <label for="age">Tuổi</label>
+  <input type="number" step="1" placeholder="Nhập tuổi của bạn" id="age">
+<button onclick="checkAge()">Kiểm tra</button>
+<br>
+<p id="result"></p>
+<script>
+  function checkAge() {
+    let tuoi = parseInt(document.getElementById("age").value);
+    if (isNaN(tuoi)||tuoi<=0) {
+      alert("Hãy nhập tuổi hợp lệ!");
+      return;
+    }
+    document.getElementById("result").innerHTML = "Tuổi của bạn là "+tuoi;
+  }
+</script>
+</body>
+</html>

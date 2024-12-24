@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PT bậc 1</title>
+    <style>
+        .row {
+            display: flex; /* Đặt các phần tử nằm trên một hàng */
+            justify-content: center; /* Đặt tất cả các phần tử về phía trái */
+            align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+            gap: 20px; /* Khoảng cách cố định giữa các phần tử */
+        }
+
+        label {
+            width: 100%;
+            text-align: center;
+        }
+
+        .lb_input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1 align="center">Tính pt có dạng: ax + b = 0</h1>
+<div class="row">
+    <div class="lb_input">
+        <label for="a">a</label>
+        <input placeholder="Nhập a" id="a">
+    </div>
+    <div class="lb_input">
+        <label for="b">b</label>
+        <input placeholder="Nhập b" id="b">
+    </div>
+    <button onclick="tinh()">Tính</button>
+</div>
+<p id="result" align="center"></p>
+<script>
+    function tinh() {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        if (isNaN(a) || isNaN(b)) {
+            alert("Hãy nhập giá trị hợp lệ!");
+            return;
+        }
+        if (a === 0) {
+            if (b === 0) {
+                document.getElementById("result").innerHTML = "Phương trình có vô số nghiệm.";
+            } else {
+                document.getElementById("result").innerHTML = "Phương trình vô nghiệm.";
+            }
+        } else {
+            document.getElementById("result").innerHTML = "Phương trình có 1 nghiệm là " + (-b / a);
+        }
+    }
+</script>
+</body>
+</html>

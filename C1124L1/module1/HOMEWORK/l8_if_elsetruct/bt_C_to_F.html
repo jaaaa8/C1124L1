@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SWAP C TO F</title>
+    <style>
+        .row {
+            display: flex; /* Đặt các phần tử nằm trên một hàng */
+            justify-content: flex-start; /* Đặt tất cả các phần tử về phía trái */
+            align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+            gap: 20px; /* Khoảng cách cố định 20px giữa các phần tử */
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <input placeholder="Nhap gia tri" id="x">
+    <select id="from">
+        <option value="C">°C</option>
+        <option value="F">°F</option>
+    </select>
+    <p>thành</p>
+    <select id="to">
+        <option value="F">°F</option>
+        <option value="C">°C</option>
+    </select>
+</div>
+<button onclick="changeTemperature()">Đổi</button>
+<br>
+<p id="result"></p>
+<script>
+    function changeTemperature() {
+        let x = parseFloat(document.getElementById("x").value);
+        let a = document.getElementById("from").value;
+        let b = document.getElementById("to").value;
+        if (isNaN(x)) {
+            alert("Hãy nhập giá trị hợp lệ!");
+            return;
+        }
+        if (a === 'C' && b === 'F') {
+            document.getElementById("result").innerHTML = (x * 1.8 + 32) + " °F";
+        } else if (a === 'F' && b === 'C') {
+            document.getElementById("result").innerHTML = (5 / 9 * (x - 32)) + " °C";
+        } else if ((a === 'C' && b === 'C') || (b === 'F' && a === 'F')) {
+            if (b === 'C') {
+                document.getElementById("result").innerHTML = x + " °C";
+            } else if (b === 'F') {
+                document.getElementById("result").innerHTML = x + " °F";
+            }
+        }
+    }
+</script>
+</body>
+</html>

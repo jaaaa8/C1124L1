@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SWAP M TO FEET</title>
+    <style>
+        .row {
+            display: flex; /* Đặt các phần tử nằm trên một hàng */
+            justify-content: flex-start; /* Đặt tất cả các phần tử về phía trái */
+            align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+            gap: 20px; /* Khoảng cách cố định 20px giữa các phần tử */
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <input placeholder="Nhap gia tri" id="x">
+    <select id="from">
+        <option value="m">m</option>
+        <option value="ft">ft</option>
+    </select>
+    <p>thành</p>
+    <select id="to">
+        <option value="ft">ft</option>
+        <option value="m">m</option>
+    </select>
+</div>
+<button onclick="changeMtoF()">Đổi</button><br>
+<p id="result"></p>
+<script>
+    function changeMtoF() {
+        let x = parseFloat(document.getElementById("x").value);
+        let a = document.getElementById("from").value;
+        let b = document.getElementById("to").value;
+        if (isNaN(x)&&x<=0) {
+            alert("Hãy nhập giá trị hợp lệ!");
+            return;
+        }
+        if (a==='m'&&b==='ft') {
+            document.getElementById("result").innerHTML = (x*3.2808)+" ft";
+        }else if (a==='ft'&&b==='m') {
+            document.getElementById("result").innerHTML = (x/3.2808)+ " °C";
+        }else if ((a==='m'&&b==='m')||(b==='ft'&&a==='ft')) {
+            if(b==='m'){
+                document.getElementById("result").innerHTML = x+" m";
+            }else if(b==='ft'){
+                document.getElementById("result").innerHTML = x+" ft";
+            }
+        }
+    }
+</script>
+</body>
+</html>
