@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FIZZ BUZZ</title>
+</head>
+<body>
+  <p id="result"></p>
+<script>
+  for(let i=1;i<=100;i++){
+    if(i%3===0&&i%5===0){
+      document.getElementById("result").innerHTML+= " FizzBuz <br>";
+    }else if(i%3===0){
+      document.getElementById("result").innerHTML+= " Fizz <br>";
+    }else if(i%5===0){
+      document.getElementById("result").innerHTML+=" Buzz <br>";
+    }else{
+      document.getElementById("result").innerHTML+= i+"<br>";
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature check</title>
+</head>
+<body>
+<p id="text" align="center"></p>
+<script>
+  // let x = 0;
+  // do{
+  //   x = prompt("Nhập thông tin nhiệt độ hiện tại. Nhập ký tự bất kỳ để dừng!");
+  //   if(isNaN(parseFloat(x))){
+  //     break;
+  //   }
+  //   x = parseFloat(x);
+  //   if(x<20){
+  //     alert("Hãy tăng nhiệt độ!");
+  //   }else if(x>100){
+  //     alert("Hãy giảm nhiệt độ!");
+  //   }
+  // }while(x<20||x>100);
+  let x = 0;
+  let result = "";
+  do{
+    x = parseFloat(prompt("Nhập thông tin nhiệt độ hiện tại! Nhập giá trị bất kỳ khác số để dừng."));
+    if(isNaN(x)){
+      break;
+    }
+    while(x > 100 || x < 20){
+      if(x<20){
+        x = parseFloat(prompt("Hãy tăng nhiệt độ!"));
+      }else if(x > 100){
+        x = parseFloat(prompt("Hãy giảm nhiệt độ!"));
+      }
+      if(isNaN(x)){
+        break;
+      }
+    }
+    if(isNaN(x)){
+      break;
+    }
+    result += x + " ";
+  }while(true);
+  if (result) {
+    // Nếu có nhiệt độ hợp lệ, hiển thị danh sách các nhiệt độ
+    document.getElementById("text").innerHTML = "Các nhiệt độ hợp lệ: " + result;
+  } else {
+    // Nếu không có nhiệt độ hợp lệ nào, hiển thị thông báo
+    document.getElementById("text").innerHTML = "Không có nhiệt độ hợp lệ nào được nhập.";
+  }
+</script>
+</body>
+</html>

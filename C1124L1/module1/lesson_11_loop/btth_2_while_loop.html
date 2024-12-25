@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEMO WHILE LOOP</title>
+</head>
+<body>
+  <input placeholder="" id ="x" align="center">
+  <button onclick="drawPyramid()">Draw</button>
+<script>
+  function drawPyramid() {
+    let a = parseInt(document.getElementById("x").value);
+    if (isNaN(a)) {
+      alert("Please enter a number!");
+      return;
+    }
+    let i = 1;
+    while (i<100) {
+      document.write("<hr width = "+i + " %>");
+      ++i;
+    }
+  }
+</script>
+</body>
+</html>

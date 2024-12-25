@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tiền điện</title>
+    <style>
+        .row {
+            display: flex; /* Đặt các phần tử nằm trên một hàng */
+            justify-content: center; /* Đặt tất cả các phần tử về phía trái */
+            align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+            gap: 20px; /* Khoảng cách cố định giữa các phần tử */
+        }
+
+        label {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .lb_input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1 align="center">TÍNH TIỀN ĐIỆN</h1>
+<div class="row">
+    <div class="lb_input">
+        <label for="p">Công suất điện tiêu thụ (kW)</label>
+        <input placeholder="Nhập công suất" id="p">
+    </div>
+    <div class="lb_input">
+        <label for="time">Thời gian sử dụng (h)</label>
+        <input placeholder="Nhập thời gian sử dụng" id="time">
+    </div>
+    <button onclick="tinh()">Tính</button>
+</div>
+<p id="result" align="center"></p>
+<script>
+    function tinh() {
+        let P = parseFloat(document.getElementById("p").value);
+        let t = parseFloat(document.getElementById("time").value);
+        if (isNaN(P) || isNaN(t) || P <= 0 || t <= 0) {
+            alert("Hãy nhập thông tin hợp lệ!")
+            return;
+        }
+        let A = P*t;
+        let level;
+        let i;
+        if (A < 50) {
+            i = 1;
+            level = 1.806;
+        }else if (51 <= A <= 100) {
+            i = 2;
+            level = 1.866;
+        }else if (101 <= A <= 200) {
+            i = 3;
+            level = 2.167;
+        }else if (201 <= A <= 300) {
+            i = 4;
+            level = 2.729;
+        }else if (301 <= A <= 400) {
+            i = 5;
+            level = 3.05;
+        }else{
+            i = 6;
+            level = 3.151;
+        }
+        document.getElementById("result").innerHTML = "Mức tiêu thụ của bạn ở mức " +i+".<br>Số tiền điện phải trả là "+(A*level).toFixed(6)+" VNĐ";
+    }
+</script>
+</body>
+</html>

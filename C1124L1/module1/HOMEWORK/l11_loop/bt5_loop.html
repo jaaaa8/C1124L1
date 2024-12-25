@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SUM 20 FIBONACCI</title>
+</head>
+<body>
+<h1 align="center">TỔNG CỦA 20 SỐ FIBONACCI ĐẦU</h1>
+<p id="result" align="center"></p>
+<script>
+    let a = 0, b = 1, c;
+    let sum = a+b;
+    for (let i = 1; i <= 20; i++) {
+        c = a + b;
+        sum += c;
+        a = b;
+        b = c;
+    }
+    document.getElementById("result").innerHTML = sum;
+</script>
+</body>
+</html>

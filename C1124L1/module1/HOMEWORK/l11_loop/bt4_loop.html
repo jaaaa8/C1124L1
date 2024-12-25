@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FIRST FIBONACCI % 5</title>
+</head>
+<body>
+    <h1 align="center">FIRST FIBONACCI CHIA HẾT CHO 5</h1>
+    <p id="result" align="center"></p>
+<script>
+    let a = 0, b = 1;
+    let c;
+    while (!chiahet5(c)) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    document.getElementById("result").innerHTML = c;
+    function chiahet5(x){
+        return x % 5 === 0;
+    }
+</script>
+</body>
+</html>

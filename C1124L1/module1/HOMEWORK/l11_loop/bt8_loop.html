@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GUESS THE NUMBER</title>
+    <style>
+        button{
+            width:200px;
+            height: 200px;
+            font-size: 25px;
+            font-weight: bold;
+            border: thick solid #000000;
+        }
+        body{
+            display: grid;
+            place-items: center; /*căn những item trong body ở chính giữa*/
+            height: 100vh; /*chiều cao bằng toàn bộ cửa sổ*/
+        }
+        .center {
+            width: 500px;
+            height: 500px;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="center">
+    <button onclick="guessGame()">CHƠI</button>
+    <p id="result"></p>
+</div>
+<script>
+    function guessGame() {
+        document.getElementById("result").innerHTML = "";
+        let max = +prompt("Nhập giới hạn đoán từ 0 đến:");
+        let x = Math.ceil(max*Math.random());
+        console.log(x);
+        let num = +prompt("Hãy nhập vào số bạn đoán:");
+        let count = 1;
+        while (count <= 3) {
+            ++count;
+            if (num === max) {
+                alert("Bạn đã đoán đúng!");
+                break;
+            }else if (num > x) {
+                alert("Số bạn đoán lớn hơn số đang tìm!");
+            }else if (num < x) {
+                alert("Số bạn đoán nhỏ hơn số đang tìm!");
+            }
+            num = +prompt("Hãy nhập lại số bạn đoán:");
+        }
+        if (count >= 4) {
+            document.getElementById("result").innerHTML = "Bạn đã hết số lần đoán! Số cần tìm là " +x;
+        }else{
+            document.getElementById("result").innerHTML = "Số cần tìm là "+x;
+        }
+    }
+</script>
+</body>
+</html>
