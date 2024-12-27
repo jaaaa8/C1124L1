@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>!N</title>
+</head>
+<body>
+    <h1 align="center">Tính giai thừa n</h1>
+<p id="result" align="center"></p>
+<script>
+    let n;
+    do{
+        n = parseInt(prompt("Nhập n"));
+        if (isNaN(n) || n<=0) {
+            alert("Hãy nhập vào số nguyên dương!")
+        }
+    }while(n <= 0 || isNaN(n));
+    let giaithua = 1;
+    for (let i = 1; i <= n; i++) {
+        giaithua *=i;
+    }
+    document.getElementById("result").innerHTML = giaithua;
+</script>
+</body>
+</html>

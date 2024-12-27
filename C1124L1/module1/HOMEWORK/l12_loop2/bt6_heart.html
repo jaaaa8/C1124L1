@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="pyramid"></p>
+<script>
+    printPyramid(5);
+
+    function printPyramid(n) {
+        let pyramid = "";
+        for (let i = 1; i <= n; i++) {
+            // Add spaces for centering
+            for (let j = 1; j <= n - i; j++) {
+                pyramid += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+            // Add stars for left side
+            for (let j = 1; j <= i; j++) {
+                pyramid += "&nbsp;&nbsp;*&nbsp;&nbsp;";
+            }
+            // Add stars for right side
+            for (let j = 1; j < i; j++) {
+                pyramid += "&nbsp;&nbsp;*&nbsp;&nbsp;";
+            }
+            pyramid += "<br>";
+        }
+        document.getElementById("pyramid").innerHTML += pyramid;
+    }
+</script>
+</body>
+</html>
