@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+<script>
+  let arr = new Array(10);
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = +prompt("Nhập phần tử thứ "+(i+1)+" :";
+    if(arr[i]>=10){
+      count++;
+    }
+  }
+  alert("Mảng vừa nhập có "+count+" phần tử lớn hơn hoặc bằng 10!");
+</script>
+<!--chat gpt-->
+<!--<script>-->
+<!--  let arr = [];-->
+<!--  let count = 0;-->
+
+<!--  for (let i = 0; i < 10; i++) {-->
+<!--    let input = prompt("Nhập phần tử thứ " + i + " :");-->
+<!--    let value = parseFloat(input); // Chuyển đổi sang số (hỗ trợ cả số thực)-->
+
+<!--    if (isNaN(value)) {-->
+<!--      alert("Giá trị không hợp lệ. Vui lòng nhập lại.");-->
+<!--      i--; // Giảm i để yêu cầu nhập lại-->
+<!--      continue;-->
+<!--    }-->
+
+<!--    arr[i] = value; // Gán giá trị hợp lệ vào mảng-->
+
+<!--    if (arr[i] >= 10) {-->
+<!--      count++;-->
+<!--    }-->
+<!--  }-->
+
+<!--  alert("Mảng vừa nhập có " + count + " phần tử lớn hơn hoặc bằng 10!");-->
+<!--</script>-->
+
+</body>
+</html>

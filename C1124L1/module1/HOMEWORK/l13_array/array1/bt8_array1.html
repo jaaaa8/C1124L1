@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SORT</title>
+</head>
+<body>
+<script>
+  let arr = new Array(10),value;
+  for(let i=0;i<arr.length;i++){
+    value = +prompt("Nhập vào phần tử thứ "+(i+1)+" :");
+    if(isNaN(value)){
+      alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+      --i;
+      continue;
+    }
+    arr[i] = value;
+  }
+  document.write("Mảng trước khi sắp xếp giảm dần: ");
+  outputARRAY(arr);
+  sortDECREASE(arr);
+  document.write("Mảng sau khi sắp xếp giảm dần: ");
+  outputARRAY(arr);
+
+  function sortDECREASE(arr){
+    for(let i=0;i<arr.length-1;i++){
+      for(let j=i+1;j<arr.length;j++){
+        if(arr[j]>arr[i]){
+          swap(a[i],a[j]);
+        }
+      }
+    }
+  }
+  function swap(a,b){
+    let temp = a;
+    a = b;
+    b = temp;
+  }
+  function outputARRAY(arr){
+    for(let i=0;i<arr.length;i++){
+      document.write(arr[i]+" ");
+    }
+  }
+</script>
+</body>
+</html>

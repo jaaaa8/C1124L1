@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 13: Array</title>
+</head>
+<body>
+<h1>Lesson 13: Array</h1>
+<div id="cars"></div>
+<button onclick="deleteItem()">Xóa</button>
+<script>
+    // Khai báo mảng: Cách 1
+    // let cars = ['Volvo','BMW','Bentley','VinFast','Maybach'];
+
+    const numberOfArray = +prompt("Nhập số lượng ô tô muốn thêm: ");
+    let cars = new Array(numberOfArray);
+    for (let i = 0; i < cars.length; i++) {
+        cars[i] = prompt("Nhập tên hãng xe tại vị trí : " + i);
+    }
+    // const numbers = [10, 20, 30, 40, 50]; // Tạo ra mảng các số nguyên có 1 phần tử có giá trị là 10
+    // const student1 = 'Trí';
+    // const student2 = 'Anh Lê';
+    // const student3 = 'Minh Võ';
+    // console.log(student1);
+    // console.log(student2);
+    // console.log(student3);
+    // const students = ['Trí', 'Anh Lê', 'Minh Võ'];
+    // console.log(students);
+    // // const numbers = new Array(10); // Tạo ra mảng các số nguyên có 10 phần tử
+    // console.log(numbers.length);
+    // numbers[0] = 99;
+    // numbers[1] = 100;
+    // for (let i = 0; i < numbers.length; i++) {
+    //     // Lấy giá trị trong mảng
+    //     document.write("<li>" + numbers[i] + "</li>");
+    // }
+    // cars.push("Mazda");
+    // cars.push("Honda");
+    // cars[cars.length] = 'Huyndai';
+    // const newCars = cars.concat(numbers);
+    // cars.sort(function (a, b) {
+    //     return b - a;
+    // });
+    // Xoas phan tu cuoi cung cua mang
+    // cars.pop(); //Huyndai
+    // const deleteItem = cars.pop(); //Honda
+    // cars.pop(); // Mazda
+    // cars.pop(); //Maybach
+    // // Xóa phần tử đầu của mảng
+    // cars.shift();
+    // // Thêm vào đầu
+    // cars.unshift('Toyota');
+
+    // Xóa phần tử tại vị trí bất kỳ
+    // cars.splice(4, 1);
+    // Thêm phần tử tại vị trí bất kỳ
+    // cars.splice(4, 0, 'Ford');
+    // console.log(cars.slice(2, 4));
+    // cars = cars.slice(2, 4);
+    // document.write(cars.reverse().join("💕💕💕"));
+    // document.write(cars.toString());
+    // document.write("<br>Phần tử bị xóa là: " + deleteItem);
+
+    function displayCars() {
+        let item = '<ul>';
+        for (const index in cars) {
+            item += "<li>" + cars[index] + "</li>";
+        }
+        item += "</ul>";
+        document.getElementById("cars").innerHTML = item;
+    }
+
+    function deleteItem() {
+        const index = +prompt("Nhập vị trí muốn xóa: ");
+        cars.splice(index, 1);
+        displayCars();
+    }
+
+    displayCars();
+</script>
+</body>
+</html>

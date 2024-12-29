@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+<p id="result"></p>
+<script>
+    let arr = new Array(5),value;
+    for(let i=0;i<arr.length;i++){
+        value = +prompt("Nhập vào phần tử thứ "+(i+1)+" :");
+        if(isNaN(value)){
+            alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+            --i;
+            continue;
+        }
+        arr[i] = value;
+    }
+    document.getElementById("result").innerHTML = "Mảng chưa đảo ngược: ";
+    xuat(arr);
+    arr.reverse();
+    document.getElementById("result").innerHTML += "<br>Mảng sau khi đảo ngược: ";
+    xuat(arr);
+    function xuat(array){
+        for(let i=0;i<array.length;i++){
+            document.getElementById("result").innerHTML += array[i] + " ";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DELETE</title>
+</head>
+<body>
+<script>
+  let arr = new Array(10),value;
+  for(let i=0;i<arr.length;i++){
+    value = +prompt("Nhập vào phần tử thứ "+(i+1)+" :");
+    if(isNaN(value)){
+      alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+      --i;
+      continue;
+    }
+    arr[i] = value;
+  }
+  let num = +prompt("Nhập vào giá trị của V:");
+  document.write("Mảng trước khi xoá giá trị V: ");
+  for(let i=0;i<arr.length;i++){
+    document.write(arr[i]+" ");
+  }
+  for(let i=0;i<arr.length;i++){
+    if(arr[i] === num){
+      xoa(arr,i);
+    }
+  }
+  document.write("<br>Mảng sau khi xoá giá trị V: ");
+  for(let i=0;i<arr.length;i++) {
+    document.write(arr[i] + " ");
+  }
+  function xoa(array,value){
+    if(value>=0&&value<array.length){
+      for(let i=value;i<arr.length-1;i++){
+        array[i] = array[i+1];
+      }
+      array.length = array.length-1;
+    }else{
+      alert("Vị trí xoá không nằm trong giới hạn mảng!");
+    }
+  }
+</script>
+</body>
+</html>

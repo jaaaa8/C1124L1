@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Puzzle</title>
+</head>
+<body>
+<div style="text-align: center">
+  <img id="img1" src="images/funny-cat1_part1x1.jpg" width="500px" alt="Cat" onclick="changeImage(this)"><br>
+  <img id="img2" src="images/monkey_part2x1.jpg" width="500px" alt="Cat" onclick="changeImage(this)"><br>
+  <img id="img3" src="images/panda_swap_part3x1.jpg" width="500px" alt="Cat"><br>
+  <img id="img4" src="images/funny-cat1_part4x1.jpg" width="500px" alt="Cat"><br>
+  <img id="img5" src="images/panda_swap_part5x1.jpg" width="500px" alt="Cat"><br>
+</div>
+<script>
+  randomImg();
+  function randomImg() {
+    const randomNumber = Math.round(Math.random() * 3 + 1);
+    document.getElementById("img1").src = randomNumber === 1 ?
+            'images/funny-cat1_part1x1.jpg' : randomNumber === 2 ?
+                    'images/monkey_part1x1.jpg' : 'images/panda_swap_part1x1.jpg'; // Hang 1
+    document.getElementById("img2").src = randomNumber === 1 ?
+            'images/panda_swap_part2x1.jpg' : randomNumber === 2 ?
+                    'images/monkey_part2x1.jpg' : 'images/funny-cat1_part2x1.jpg'; // Hang 2
+    document.getElementById("img3").src = randomNumber === 1 ?
+            'images/funny-cat1_part3x1.jpg' : randomNumber === 2 ?
+                    'images/panda_swap_part3x1.jpg' : 'images/monkey_part3x1.jpg'; // Hang 3
+    document.getElementById("img4").src = randomNumber === 1 ?
+            'images/panda_swap_part4x1.jpg' : randomNumber === 2 ?
+                    'images/monkey_part4x1.jpg' : 'images/funny-cat1_part4x1.jpg'; // Hang 4
+    document.getElementById("img5").src = randomNumber === 1 ?
+            'images/monkey_part5x1.jpg' : randomNumber === 2 ?
+                    'images/funny-cat1_part5x1.jpg' : 'images/panda_swap_part5x1.jpg'; // Hang 5
+  }
+  function changeImage(img) {
+    console.log(img.src);
+    if (img.src.includes('funny-cat1_part1x1')) { // Hang 1
+      img.src = 'images/monkey_part1x1.jpg';
+    } else if (img.src.includes('monkey_part1x1')) {
+      img.src = 'images/panda_swap_part1x1.jpg';
+    } else if (img.src.includes('panda_swap_part1x1')) {
+      img.src = 'images/funny-cat1_part1x1.jpg';
+    } else if (img.src.includes('monkey_part2x1')) { // Hang 2
+      img.src = 'images/panda_swap_part2x1.jpg';
+    } else if (img.src.includes('panda_swap_part2x1')) {
+      img.src = 'images/funny-cat1_part2x1.jpg';
+    } else if (img.src.includes('funny-cat1_part2x1')) {
+      img.src = 'images/monkey_part2x1.jpg';
+    }
+  }
+</script>
+</body>
+</html>

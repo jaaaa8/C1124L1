@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CHECK</title>
+</head>
+<body>
+<script>
+  let arr = new Array(5),value;
+  for(let i=0;i<arr.length;i++){
+    value = +prompt("Nhập vào phần tử thứ "+(i+1)+" :");
+    if(isNaN(value)){
+      alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+      --i;
+      continue;
+    }
+    arr[i] = value;
+  }
+  let num;
+  do{
+    num = +prompt("Nhập giá trị của V: ");
+    if(isNaN(num)){
+      alert("Hãy nhập giá trị hợp lệ!");
+    }
+  }while(isNaN(num));
+  kiemtra(arr,num);
+
+  function kiemtra(array,n){
+    for(let i=0;i<array.length;i++){
+      if(array[i]===n){
+        alert("V is in the array");
+        return;
+      }
+    }
+    alert("V is not in the array");
+  }
+
+</script>
+</body>
+</html>

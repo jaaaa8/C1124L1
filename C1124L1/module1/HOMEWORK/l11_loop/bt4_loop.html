@@ -10,15 +10,12 @@
 <script>
     let a = 0, b = 1;
     let c;
-    while (!chiahet5(c)) {
+    while (c%5!==0) {
         c = a + b;
         a = b;
         b = c;
     }
     document.getElementById("result").innerHTML = c;
-    function chiahet5(x){
-        return x % 5 === 0;
-    }
 </script>
 </body>
 </html>
