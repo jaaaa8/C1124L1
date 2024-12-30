@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COMPARE</title>
+</head>
+<body>
+<script>
+  let arrA = new Array(5);let arrB = new Array(5);
+  alert("Nhập giá trị vào mảng a:");
+  inputArray(arrA);
+  alert("Nhập giá trị vào mảng b: ");
+  inputArray(arrB);
+  document.write("Mảng a: ");
+  outputArray(arrA);
+  document.write("<br>Mảng b: ");
+  outputArray(arrB);
+  if(compareArray(arrA,arrB)){
+    document.write("<br>2 mảng này giống nhau!");
+  }else{
+    document.write("<br>2 mảng này khác nhau!");
+  }
+
+  function compareArray(arr1,arr2){
+    if(arr1.length !== arr2.length){
+      return false;
+    }else{
+      for(let i=0;i<arr1.length;i++){
+        if(arr1[i] !== arr2[i]){
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+  function inputArray(arr){
+    let value;
+    for(let i=0;i<arr.length;i++){
+      value = prompt("Nhập vào phần tử thứ "+(i+1)+" của mảng:");
+      arr[i] = value;
+    }
+  }
+  function outputArray(arr){
+    for(let i=0;i<arr.length;i++){
+      document.write(arr[i]+" ");
+    }
+  }
+</script>
+</body>
+</html>
