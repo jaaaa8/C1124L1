@@ -16,11 +16,15 @@
   outputArray(arr);
 
   function replaceArray(arr) {
-    for (let index = 0; index < arr.length; index++) {
-      if (arr[index] === '-') {
-        arr[index] = '_';
+      for (let index = 0; index < arr.length; index++) {
+          if (arr[index] === '-') {
+              // Nếu phần tử là dấu '-' thì thay bằng '_'
+              arr[index] = '_';
+          } else if (typeof arr[index] === 'string' && arr[index].includes('-')) {
+              // Nếu phần tử là chuỗi và chứa ký tự '-', thay thế tất cả '-' bằng '_'
+              arr[index] = arr[index].replace(/-/g, '_');
+          }
       }
-    }
   }
   function inputArray(arr,length){
     let value;

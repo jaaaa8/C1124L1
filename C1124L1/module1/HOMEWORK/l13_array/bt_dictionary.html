@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DICTIONARY</title>
+</head>
+<body>
+<label for="base">Từ: </label>
+<input id="base" placeholder="Nhập từ">
+<button onclick="translateTo()">Dịch</button>
+<p id="result"></p>
+<script>
+    function translateTo() {
+        let arr_eng = ["banana", "apple", "orange", "pen", "pencil", "book","handsome"];
+        let arr_vie = ["chuối", "táo", "cam", "bút", "bút chì", "sách","Trần Phước Trí"];
+        let string = document.getElementById("base").value;
+        let index_eng = 0;
+        let result = "";
+        for (let i = 0; i < arr_eng.length; i++) {
+            if (string === arr_eng[i]) {
+                index_eng = i;
+                for (let j = 0; j < arr_vie.length; j++) {
+                    if (index_eng === j) {
+                        result = arr_vie[j];
+                    }
+                }
+            }
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AVAILABLE FUNC</title>
+</head>
+<body>
+<script>
+    let myColor = ["Red", "Green", "White", "Black"];
+    document.write("Mảng trước khi thay đổi: ");
+    outputArray(myColor);
+    myColor.toString();
+    document.write("<br> Mảng sau khi thay đổi: ");
+    document.write(myColor.join(','));
+    let numbers = 2266435328126;
+    document.write("<br> Số trước khi thay đổi: "+numbers);
+    let strings = numbers.toString();
+    let result = [strings[0]];
+    for(let i=0;i<strings.length;i++){
+        if(strings[i-1]%2===0 && strings[i]%2===0){
+            result.push('-',strings[i]);
+        }else{
+            result.push(strings[i]);
+        }
+    }
+    document.write("<br> Số sau khi thay đổi: "+result.join(''));
+
+    function outputArray(arr){
+        for(let i=0;i<arr.length;i++){
+            document.write(arr[i]+" ");
+        }
+    }
+
+</script>
+</body>
+</html>
