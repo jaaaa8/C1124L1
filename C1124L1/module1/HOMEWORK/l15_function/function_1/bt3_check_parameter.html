@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>compare parameter</title>
+</head>
+<body>
+<script>
+  let a,b;
+  do{
+    a = +prompt("Nhập vào số bất kỳ!");
+    b = +prompt("Nhập vào số bất kỳ!");
+    if(isNaN(a) || isNaN(b)){
+      alert("Hãy nhập số hợp lệ!");
+    }
+  }while(isNaN(a) || isNaN(b));
+  compareParameter(a,b);
+
+  function compareParameter(parameter1, parameter2) {
+    if (parameter1 > parameter2) {
+      alert(parameter1 +" lớn hơn " +parameter2);
+    }else  {
+      alert("Tổng của "+parameter1+" và " +parameter2 +" là "+(parameter1+parameter2));
+    }
+  }
+</script>
+</body>
+</html>

@@ -6,47 +6,84 @@
 </head>
 <body>
 <script>
-  let arrA = new Array(10); let arrB = new Array(10); let arrC = new Array(20);
-  alert("Nhập giá trị vào mảng a!");
-  inputARRAY(arrA);
-  alert("Nhạp giá trị vào mảng b!");
-  inputARRAY(arrB);
-  document.write("Mảng a: ");
-  outputARRAY(arrA);
-  document.write("<br>Mảng b: ");
-  outputARRAY(arrB);
-  mergeARRAY(arrC,arrA,arrB);
-  document.write("<br>Mảng c: ");
-  outputARRAY(arrC);
+    // dùng hàm có sẵn
 
-  function inputARRAY(arr){
-    let value;
-    for(let i=0;i<arr.length;i++){
-      value = +prompt("Nhập vào phần tử thứ "+(i+1)+" của mảng:");
-      if(isNaN(value)){
-        alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
-        --i;
-        continue;
-      }
-      arr[i] = value;
+    let arrA = [], arrB = [], arrC = [];
+    alert("Nhập giá trị vào mảng A:");
+    arrA = inputARRAY();
+    alert("Nhập giá trị vào mảng B:");
+    arrB = inputARRAY();
+
+    document.write("Mảng A: ");
+    outputARRAY(arrA);
+
+    document.write("<br>Mảng B: ");
+    outputARRAY(arrB);
+
+    // Gộp mảng bằng spread operator
+    // arrC = [...arrA, ...arrB];
+    // Gộp mảng bằng concat()
+    arrC = arrA.concat(arrB);
+
+    document.write("<br>Mảng C (sau khi gộp): ");
+    outputARRAY(arrC);
+
+    // Hàm nhập mảng
+    function inputARRAY() {
+        let input = prompt("Nhập các phần tử cách nhau bằng dấu phẩy (,):");
+        let arr = input.split(",").map(Number); // Chuyển chuỗi thành mảng số
+        arr = arr.filter(value => !isNaN(value)); // Lọc bỏ giá trị không hợp lệ
+        return arr;
     }
-  }
-  function mergeARRAY(arr,arr1,arr2){
-    let size = 0;
-    for(let i=0;i<arr1.length;i++){
-      arr[size] = arr1[i];
-      ++size;
+
+    // Hàm xuất mảng
+    function outputARRAY(arr) {
+        document.write(arr.join(" ") + "<br>");
     }
-    for(let i=0;i<arr2.length;i++){
-      arr[size] = arr2[i];
-      ++size;
-    }
-  }
-  function outputARRAY(arr){
-    for(let i=0;i<arr.length;i++){
-      document.write(arr[i]+" ");
-    }
-  }
+
+
+    // LÀM THỦ CÔNG
+    // let arrA = new Array(10); let arrB = new Array(10); let arrC = new Array(20);
+    // alert("Nhập giá trị vào mảng a!");
+    // inputARRAY(arrA);
+    // alert("Nhạp giá trị vào mảng b!");
+    // inputARRAY(arrB);
+    // document.write("Mảng a: ");
+    // outputARRAY(arrA);
+    // document.write("<br>Mảng b: ");
+    // outputARRAY(arrB);
+    // mergeARRAY(arrC,arrA,arrB);
+    // document.write("<br>Mảng c: ");
+    // outputARRAY(arrC);
+    //
+    // function inputARRAY(arr){
+    //   let value;
+    //   for(let i=0;i<arr.length;i++){
+    //     value = +prompt("Nhập vào phần tử thứ "+(i+1)+" của mảng:");
+    //     if(isNaN(value)){
+    //       alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+    //       --i;
+    //       continue;
+    //     }
+    //     arr[i] = value;
+    //   }
+    // }
+    // function mergeARRAY(arr,arr1,arr2){
+    //   let size = 0;
+    //   for(let i=0;i<arr1.length;i++){
+    //     arr[size] = arr1[i];
+    //     ++size;
+    //   }
+    //   for(let i=0;i<arr2.length;i++){
+    //     arr[size] = arr2[i];
+    //     ++size;
+    //   }
+    // }
+    // function outputARRAY(arr){
+    //   for(let i=0;i<arr.length;i++){
+    //     document.write(arr[i]+" ");
+    //   }
+    // }
 </script>
 </body>
 </html>

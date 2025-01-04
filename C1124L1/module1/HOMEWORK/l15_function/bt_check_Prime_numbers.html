@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let num;
+  do{
+    num = +prompt("Enter a number");
+    if (num > 10000 || !Number.isInteger(num)){
+      alert("Hãy nhập giá trị nguyên dưới 10000!");
+    }
+  }while(num > 10000 || !Number.isInteger(num));
+  if(isPrimeNumbers(num)) document.write(num+" là số nguyên tố!");
+  else document.write(num+ " không phải số nguyên tố!");
+
+
+  function isPrimeNumbers(number) {
+    if (number <= 1) {
+      return false;
+    }
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+      if (number % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+</script>
+</body>
+</html>

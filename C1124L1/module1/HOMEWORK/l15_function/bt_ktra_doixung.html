@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    function isPalindrome(s) {
+        // Loại bỏ khoảng trắng và chuyển tất cả các ký tự về chữ thường
+        s = s.replace(/\s+/g, '').toLowerCase();
+
+        // Hàm kiểm tra đệ quy
+        function checkPalindrome(start, end) {
+            // Điều kiện cơ sở: Nếu hai chỉ số trùng nhau hoặc vượt qua nhau, chuỗi là đối xứng
+            if (start >= end) {
+                return true;
+            }
+            // So sánh ký tự ở hai đầu
+            if (s[start] !== s[end]) {
+                return false;
+            }
+            // Gọi đệ quy với hai chỉ số gần hơn về giữa
+            return checkPalindrome(start + 1, end - 1);
+        }
+
+        // Gọi hàm đệ quy với hai đầu của chuỗi
+        return checkPalindrome(0, s.length - 1);
+    }
+
+    // Kiểm tra một số ví dụ
+    console.log(isPalindrome("radar"));       // true
+    console.log(isPalindrome("hello"));       // false
+    console.log(isPalindrome("A man a plan a canal Panama")); // true
+    console.log(isPalindrome(""));            // true (chuỗi rỗng là đối xứng)
+    console.log(isPalindrome("racecar"));     // true
+    console.log(isPalindrome("12321"));       // true
+    console.log(isPalindrome("12345"));       // false
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B2</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = +prompt("Nhập vào giới hạn của mảng:");
+        if (isNaN(n) || !Number.isInteger(n)) {
+            alert("Hãy nhập vào 1 số nguyên dương!");
+        }
+    } while (isNaN(n) || !Number.isInteger(n));
+    let array = new Array(n);
+    inputArray(array, n);
+    document.write("Mảng: ");
+    outputArray(array);
+    if (checkArray(array)) {
+        document.write("<br>TRUE!");
+    } else {
+        document.write("<br>FALSE!");
+    }
+
+
+    function checkArray(arr) {
+        // chatgpt sửa thêm cách xử lí độ dài là số lẻ
+        // Dùng Math.floor() để làm tròn xuống lấy vị trí số trung tâm là số nguyên
+        const middleIndex = Math.floor(arr.length / 2);
+
+        for (let i = 0; i < middleIndex; i++) {
+            // arr[middleIndex + 1 + i] + 1 để bỏ qua phần tử lẻ ở trung tâm
+            if (Math.pow(arr[i], 2) !== arr[middleIndex + 1 + i]) {
+                return false;
+            }
+        }
+        return true;
+
+        // tự làm, bỏ qua trường hợp độ dài là số lẻ và trả về false
+        // if(arr.length % 2 === 1) {
+        //     return false;
+        // }
+        // for (let i = 0; i < arr.length/2; i++) {
+        //     if (Math.pow(arr[i], 2) !== arr[(arr.length/2)+i]) {
+        //         return false;
+        //     }
+        // }
+        // return true;
+    }
+
+    function inputArray(arr, length) {
+        let value;
+        for (let i = 0; i < length; i++) {
+            value = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+            if (isNaN(value)) {
+                alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+                --i;
+                continue;
+            }
+            arr[i] = value;
+        }
+    }
+
+    function outputArray(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i] + " ");
+        }
+    }
+</script>
+</body>
+</html>

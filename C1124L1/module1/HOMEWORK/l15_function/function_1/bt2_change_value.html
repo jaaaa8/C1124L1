@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>change</title>
+</head>
+<body>
+<p id="result"></p>
+<script>
+    let any = {
+        name: 'a',
+        num: 5
+    }
+    changeValue(any);
+    document.getElementById('result').innerHTML = any.num;
+
+    function changeValue(obj) {
+        obj.num++;
+    }
+</script>
+</body>
+</html>

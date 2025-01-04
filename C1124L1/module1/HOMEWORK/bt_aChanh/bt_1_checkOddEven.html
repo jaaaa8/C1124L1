@@ -2,40 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BT1</title>
+    <title>B1</title>
 </head>
 <body>
 <script>
     let n;
     do {
-        n = parseInt(prompt("Nhập độ dài của mảng!"));
-        if (n >= 50 || n < 0 || isNaN(n)) {
-            alert("Hãy nhập giá trị số nguyên nhỏ hơn 50!");
+        n = +prompt("Nhập vào giới hạn của mảng:");
+        if (isNaN(n) || !Number.isInteger(n)) {
+            alert("Hãy nhập vào 1 số nguyên dương!");
         }
-    } while (n >= 50 || n < 0 || isNaN(n));
+    } while (isNaN(n) || !Number.isInteger(n));
     let array = new Array(n);
     inputArray(array, n);
     document.write("Mảng: ");
-    outputArray(array, n);
-    document.write("<br>Giá trị tổng số chẵn - tổng số lẻ là: " +sumValue(array));
-
-
-    function sumValue(arr) {
-        let sumOdd = 0, sumEven = 0;
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i] % 2 === 0) {
-                sumEven += arr[i];
-            } else {
-                sumOdd += arr[i];
-            }
-        }
-        return sumEven - sumOdd;
+    outputArray(array);
+    if (checkOddEven(array)) {
+        document.write("<br>OK!");
+    } else {
+        document.write("<br>NO!");
     }
 
-    function outputArray(arr) {
-        for (let i = 0; i < arr.length; i++) {
-            document.write(arr[i] + " ");
+
+    function checkOddEven(arr) {
+        if (arr.length % 2 === 1) {
+            return false;
         }
+        let countOdd = 0, countEven = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                countEven++;
+            } else {
+                countOdd++;
+            }
+        }
+        return countEven === countOdd;
     }
 
     function inputArray(arr, length) {
@@ -48,6 +49,12 @@
                 continue;
             }
             arr[i] = value;
+        }
+    }
+
+    function outputArray(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i] + " ");
         }
     }
 </script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>astrology</title>
+</head>
+<body>
+<script>
+    let star = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", " Dubhe", "Regulus"];
+    let constellation = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    let name = prompt("Nhập tên ngôi sao!");
+    name = capitalizeFirstLetter(name); // Chuẩn hóa tên ngôi sao
+    check_star(name);
+
+    function check_star(starName) {
+        for (let i = 0; i < star.length; i++) {
+            if (starName === star[i]) {
+                alert("Ngôi sao này thuộc chòm " + constellation[i]);
+                return;
+            }
+        }
+        alert("Ngôi sao này tên lạ vậy bro?");
+    }
+
+    // gpt tối ưu
+    function capitalizeFirstLetter(str) {
+      // Kiểm tra chuỗi không rỗng
+      if (!str) return "";
+      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+      // chuyển ký tự đầu thành hoa và các ký tự sau sang thường
+    }
+</script>
+</body>
+</html>

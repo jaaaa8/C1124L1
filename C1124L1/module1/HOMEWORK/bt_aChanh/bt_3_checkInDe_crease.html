@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check tang giam</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = +prompt("Nhập vào giới hạn của mảng:");
+        if (isNaN(n) || !Number.isInteger(n)) {
+            alert("Hãy nhập vào 1 số nguyên dương!");
+        }
+    } while (isNaN(n) || !Number.isInteger(n));
+    let array = new Array(n);
+    inputArray(array, n);
+    document.write("Mảng: ");
+    outputArray(array);
+    if (checkDecrease(array) && checkIncrease(array)) {
+        document.write("<br>OK!");
+    } else {
+        document.write("<br>NO!");
+    }
+
+
+    function checkDecrease(array) {
+        for (let i = 0; i < array.length - 1; i++) {
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[i] < array[j]) {
+                    return false;
+                }
+            }
+        }
+    }
+
+    function checkIncrease(array) {
+        for (let i = 0; i < array.length - 1; i++) {
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[i] > array[j]) {
+                    return false;
+                }
+            }
+        }
+    }
+
+    function inputArray(arr, length) {
+        let value;
+        for (let i = 0; i < length; i++) {
+            value = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+            if (isNaN(value)) {
+                alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+                --i;
+                continue;
+            }
+            arr[i] = value;
+        }
+    }
+
+    function outputArray(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i] + " ");
+        }
+    }
+</script>
+</body>
+</html>

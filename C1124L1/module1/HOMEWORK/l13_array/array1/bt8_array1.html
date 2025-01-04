@@ -26,15 +26,15 @@
     for(let i=0;i<arr.length-1;i++){
       for(let j=i+1;j<arr.length;j++){
         if(arr[j]>arr[i]){
-          swap(a[i],a[j]);
+            swap(arr, i, j);
         }
       }
     }
   }
-  function swap(a,b){
-    let temp = a;
-    a = b;
-    b = temp;
+  function swap(arr, i, j) {
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
   }
   function outputARRAY(arr){
     for(let i=0;i<arr.length;i++){

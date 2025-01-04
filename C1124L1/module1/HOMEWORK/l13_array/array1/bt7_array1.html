@@ -23,23 +23,27 @@
   }
   for(let i=0;i<arr.length;i++){
     if(arr[i] === num){
-      xoa(arr,i);
+        arr.splice(i, 1); // Xoá 1 phần tử tại vị trí i
+        i--; // Giảm i để không bỏ qua phần tử kế tiếp
     }
   }
   document.write("<br>Mảng sau khi xoá giá trị V: ");
   for(let i=0;i<arr.length;i++) {
     document.write(arr[i] + " ");
   }
-  function xoa(array,value){
-    if(value>=0&&value<array.length){
-      for(let i=value;i<arr.length-1;i++){
-        array[i] = array[i+1];
-      }
-      array.length = array.length-1;
-    }else{
-      alert("Vị trí xoá không nằm trong giới hạn mảng!");
-    }
-  }
+
+
+  // hàm thủ công KHÔNG THAY ĐỔI được giá trị arr.length
+  // function xoa(array,value){
+  //   // if(value>=0&&value<array.length){
+  //   //   for(let i=value;i<arr.length-1;i++){
+  //   //     array[i] = array[i+1];
+  //   //   }
+  //   //   array.length -= 1;
+  //   // }else{
+  //   //   alert("Vị trí xoá không nằm trong giới hạn mảng!");
+  //   // }
+  // }
 </script>
 </body>
 </html>
