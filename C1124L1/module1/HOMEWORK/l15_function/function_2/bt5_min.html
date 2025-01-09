@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>min</title>
+</head>
+<body>
+<script>
+    let array = new Array(3);
+    inputArray(array);
+    document.write("Số nhỏ nhất trong 3 số ");
+    outputArray(array);
+    document.write(`là ${minArray(array)}`);
+
+
+    function minArray(arr) {
+        let min = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    function getValidNumber() {
+        let number;
+        do {
+            number = +prompt("Nhập 1 số bất kỳ:");
+            if (isNaN(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number));
+        return number;
+    }
+
+    function inputArray(arr) {
+        let value;
+        for (let i = 0; i < arr.length; i++) {
+            value = getValidNumber();
+            arr[i] = value;
+        }
+    }
+    function outputArray(arr){
+        for(let i=0;i<arr.length;i++){
+            document.write(arr[i]+" ");
+        }
+    }
+</script>
+</body>
+</html>

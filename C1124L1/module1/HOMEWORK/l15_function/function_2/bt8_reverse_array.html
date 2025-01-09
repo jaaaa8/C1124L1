@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse Array</title>
+</head>
+<body>
+<script>
+    alert("Nhập vào số lượng phần tử của mảng!");
+    let n = getValidNumber();
+    let array = new Array(n);
+    inputArray(array);
+    outputArray(array);
+    reverseArray(array);
+    document.write("<br>Mảng sau khi đảo ngược:");
+    outputArray(array);
+
+    function reverseArray(arr) {
+        let temp;
+        for(let i = 0; i < Math.floor(arr.length / 2); i++) { // handle trường hợp số lượng pt là số lẻ
+            temp = arr[i];
+            arr[i] = arr[arr.length-1 -i];
+            arr[arr.length-1-i] = temp;
+        }
+    }
+    function getValidNumber() {
+        let number;
+        do {
+            number = +prompt("Nhập 1 số  nguyên bất kỳ:");
+            if (isNaN(number) || !Number.isInteger(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number) || !Number.isInteger(number));
+        return number;
+    }
+
+    function inputArray(arr) {
+        let value;
+        for (let i = 0; i < arr.length; i++) {
+            value = getValidNumber();
+            arr[i] = value;
+        }
+    }
+    function outputArray(arr){
+        document.write("<br>Mảng có: ");
+        for(let i=0;i<arr.length;i++){
+            document.write(arr[i]+" ");
+        }
+    }
+</script>
+</body>
+</html>

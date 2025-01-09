@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Classes {
+    constructor(firstname,name) {
+      this.firstname = firstname;
+      this.name = name;
+    }
+  }
+  class SinhVien {
+    // là một hàm đặc biệt dùng để khởi tạo đối tượng
+    constructor(id, classes) {
+      this.id = id;
+      this.classes = classes;
+    }
+
+    study(subject) {
+      console.log(this.id + " học môn : " + subject)
+    }
+
+  }
+  let class1 = new Classes("1", "C01");
+  let student = new SinhVien(1, class1);
+
+  alert(student.classes.firstname)
+  alert(student.classes.name)
+
+  // declare function
+  function sum(a, b) {
+    return a + b;
+  }
+  // express funciton
+  const sum1 = function (a,b){
+    return a + b;
+  }
+  const sum2 =  (a,b)=>{
+    return a + b;
+  }
+  const sum3 = a => a + 12;
+
+  // toán tử 3 ngôi
+  (1<2) ? alert("ok") : alert("not ok");
+
+  sum2(5,3);
+</script>
+</body>
+</html>

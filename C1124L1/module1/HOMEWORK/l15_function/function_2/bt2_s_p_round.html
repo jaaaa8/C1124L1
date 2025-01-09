@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chu vi và diện tích</title>
+</head>
+<body>
+<label for="r">Bán kính</label>
+<input placeholder="Nhập bán kính" id="r">
+<button onclick="tinhCHUVI()">Tính chu vi</button>
+<button onclick="tinhDientich()">Tính diện tích</button>
+<p id="ketqua"></p>
+<script>
+    function tinhCHUVI() {
+        let r = +document.getElementById("r").value;
+        let chuvi = r * 2 * Math.PI;
+        document.getElementById("ketqua").innerHTML = "Chu vi của hình tròn có bán kính " + r + " là " + chuvi.toFixed(2);
+    }
+
+    function tinhDientich() {
+        let r = +document.getElementById("r").value;
+        let dientich = Math.pow(r, 2) * Math.PI;
+        document.getElementById("ketqua").innerHTML = "Dien tich hinh tròn co ban kinh " + r + " là " + dientich.toFixed(2);
+    }
+</script>
+</body>
+</html>

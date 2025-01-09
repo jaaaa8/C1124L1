@@ -1,0 +1,22 @@
+button {
+    background: #50AF50;
+    border: 1px solid #50AF50;
+    padding: 10px;
+    color: white
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr:nth-child(even), form {
+    background-color: #F2F2F2;
+}
+td {
+    padding: 6px;
+}
+
+form {
+    padding: 15px;
+    width: 70%;
+}

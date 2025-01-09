@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    alert("Nhập giá trị của số a!");
+    let number1 = getValidNumber();
+    alert("Nhập giá trị của số b!");
+    let number2 = getValidNumber();
+
+    let obj1 = {
+        num: number1
+    }
+    let obj2 = {
+        num: number2
+    }
+
+    swap(obj1, obj2);
+    document.write(`Số a là ${number1} và số b là ${number2}
+                    <br>Sau khi hoán vị:
+                    <br>Số a là ${obj1.num} và số là ${obj2.num}
+    `);
+
+
+    function swap(obj1,obj2){
+        let temp = obj1.num;
+        obj1.num = obj2.num;
+        obj2.num = temp;
+    }
+    function getValidNumber() {
+        let number;
+        do {
+            number = +prompt("Nhập 1 số  nguyên bất kỳ:");
+            if (isNaN(number) || !Number.isInteger(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number) || !Number.isInteger(number));
+        return number;
+    }
+</script>
+
+</body>
+</html>

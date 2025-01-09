@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = getValidNumber();
+    let array = new Array(n);
+    inputArray(array);
+    outputArray(array);
+    let any = prompt("Nhập vào ký tự bất kỳ kiểm tra có trong mảng không:");
+
+    if(checkIncludeArray(array, any)){
+        document.write(`<br>${any} có trong mảng và xuất hiện ${checkIncludeArray(array, any)} lần.`);
+    }else{
+        document.write((`<br>${any} không có trong mảng!`));
+    }
+
+
+    function checkIncludeArray(array,char) {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            if(array[i] === char) {
+                count++;
+            }
+        }
+        return count;
+    }
+    function inputArray(arr) {
+        let value;
+        for (let i = 0; i < arr.length; i++) {
+            value = prompt("Nhập vào ký tự bất kỳ!");
+            arr[i] = value;
+        }
+    }
+    function getValidNumber() {
+        let number;
+        do {
+            number = +prompt("Nhập số lượng phần tử của mảng:");
+            if (isNaN(number) || !Number.isInteger(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number) || !Number.isInteger(number));
+        return number;
+    }
+    function outputArray(arr){
+        document.write("<br>Mảng có: ");
+        for(let i=0;i<arr.length;i++){
+            document.write(arr[i]+" ");
+        }
+    }
+</script>
+</body>
+</html>

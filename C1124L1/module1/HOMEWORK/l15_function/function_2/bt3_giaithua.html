@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giai thua</title>
+</head>
+<body>
+<label for="num">Số</label>
+<input id="num" placeholder="Nhập số bất kỳ">
+<button onclick="tinhGiaiThua()">Tính giai thừa</button>
+<br>
+<p id="result"></p>
+<script>
+  function tinhGiaiThua() {
+    let n = +document.getElementById("num").value;
+    if(isNaN(n)||n<=0 || !Number.isInteger(n)){
+      alert("Hãy nhập giá trị hơp lệ!");
+      return;
+    }
+    let giaiThua = 1;
+    for(let i=1;i<=n;i++){
+      giaiThua *= i;
+    }
+    document.getElementById("result").innerHTML = "Giai thừa của "+ n+ " là "+giaiThua;
+  }
+</script>
+</body>
+</html>

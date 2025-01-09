@@ -2,29 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Array</title>
+    <title>Array Max and location</title>
 </head>
 <body>
 <script>
-    let arr = new Array(5),value,max;
+    let arr = new Array(10),value,max;
     for(let i=0;i<arr.length;i++){
         value = +prompt("Nhập vào phần tử thứ "+(i+1)+" :");
         if(isNaN(value)){
             alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
-            --i;
-            continue;
+            --i; // giảm giá trị i để ghi đè lại giá trị a[i]
+            continue; // skip đến vòng lặp tiếp theo với giá trị i không thay đổi
         }
         arr[i] = value;
     }
     max = arr[0];
-    let sum = 0;
-    for(let i=0;i<arr.length;i++){
-        sum += arr[i];
+    let vitri;
+    for(let i=1;i<arr.length;i++){
         if(max<arr[i]){
             max = arr[i];
+            vitri = i;
         }
     }
-    alert("Giá trị lớn nhất trong mảng là "+max+ " và trung bình cộng của tất cả các phần tử trong mảng là  "+(sum/arr.length));
+    alert("Giá trị lớn nhất trong mảng là "+max+ " ở vị trí "+vitri);
+
 </script>
 </body>
 </html>

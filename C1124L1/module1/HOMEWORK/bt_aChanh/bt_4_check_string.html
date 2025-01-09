@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check lowercase or uppercase</title>
+</head>
+<body>
+<script>
+    let string = prompt("Nhập vào cái gì đó!");
+    if(checkString(string)){
+        document.write("true");
+    }else{
+        document.write("false");
+    }
+
+    // gpt làm
+    function checkString(str) {
+        let upperCount = 0; // Đếm ký tự in hoa
+        let lowerCount = 0; // Đếm ký tự in thường
+
+        // Duyệt qua từng ký tự trong chuỗi bằng for of
+        for (let char of str) {
+            if (char >= 'A' && char <= 'Z') {
+                upperCount++; // Tăng số ký tự in hoa
+            } else if (char >= 'a' && char <= 'z') {
+                lowerCount++; // Tăng số ký tự in thường
+            }
+        }
+
+        // So sánh số lượng ký tự in hoa và in thường
+        return upperCount === lowerCount;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check numbers</title>
+</head>
+<body>
+<script>
+  let any = prompt("Nhập vào cái gì đó");
+  if(checkNumber(any)){
+    alert("true");
+  }else{
+    alert("false");
+  }
+
+  function checkNumber(number) {
+    return !isNaN(number);
+  }
+</script>
+</body>
+</html>

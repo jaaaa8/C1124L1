@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Books</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form>
+    <input type="text" id="productName" placeholder="New Product" style="padding: 10px">
+    <button type="button" onclick="addProduct()">Add</button>
+</form>
+<h2>Display All Product</h2>
+<!--    table>tr*9>td*3-->
+<div style="display: flex; justify-content: space-between">
+    <h5>Product Name</h5>
+    <h5 style="text-align: right;color: #A52A2A" id="totalProduct">9 products</h5>
+</div>
+<table id="table"></table>
+<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="manage.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<canvas id="hcn" width="500" height="400"></canvas>
+<br><br>
+<button onclick="btnChangeWidthHeight()">Change</button>
+<p id="result"></p>
+<script>
+    class Rectangle {
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        getWidth() {
+            return this.width;
+        }
+
+        getHeight() {
+            return this.height;
+        }
+
+        chuVi() {
+            return (this.width + this.height) * 2;
+        }
+
+        dienTich() {
+            return this.width * this.height;
+        }
+
+        setWidth(width) {
+            this.width = width;
+        }
+
+        setHeight(height) {
+            this.height = height;
+        }
+    }
+
+    let rectangle = new Rectangle(300, 100);
+
+    drawRectangle(rectangle.getWidth(), rectangle.getHeight());
+
+    document.getElementById('result').innerHTML = `
+      Chiều dài và chiều cao hình chữ nhật là ${rectangle.getWidth()} và ${rectangle.getHeight()}
+      <br>Diện tích hình chữ nhật là ${rectangle.dienTich()}
+      <br>Chu vi hình chữ nhật là ${rectangle.chuVi()}
+  `;
+
+    function drawRectangle(width, height) {
+        let canvas = document.getElementById("hcn");
+        let ctx = canvas.getContext('2d');
+        // Phương thức getContext('2d') trả về một đối tượng đại diện cho ngữ cảnh vẽ trên canvas ở chế độ 2D
+
+        // Xóa toàn bộ canvas trước khi vẽ lại clearRect(x, y, width, height)
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // tức xoá từ vị trí x = 0, và y = 0 và đặt lại chiều cao và chiều rộng của canvas
+
+        // Bạn luôn cần đặt các giá trị màu trong dấu nháy đơn (') hoặc nháy kép ("), vì chúng là chuỗi.
+        ctx.fillStyle = '#fa4b2a'; // chọn màu #fa4b2a
+
+        // Phương thức fillRect(x, y, width, height)
+        ctx.fillRect(10, 10, width, height); // tô màu
+        // x = 10 và y = 10 để padding cho đẹp
+    }
+
+    // sai vì hàm này nhận tham số => width và height không cập nhập giá trị của chúng
+    // function inputWidthHeight(width,height) {
+    //     do{
+    //         width = +prompt("Nhập chiều rộng:");
+    //         if(isNaN(width) || width <= 0){
+    //             alert("Hãy nhập chiều rộng hợp lệ!");
+    //             continue;
+    //         }
+    //         height = +prompt("Nhập chiều cao:");
+    //         if(isNaN(height) || height <= 0) {
+    //             alert("Hãy nhập chiều cao hợp lệ!");
+    //         }
+    //     }while(isNaN(height) || height <= 0 || isNaN(width) || width <= 0);
+    // }
+
+    function inputWidthHeight() {
+        let width, height;
+        do {
+            width = +prompt("Nhập chiều rộng:");
+            if (isNaN(width) || width <= 0) {
+                alert("Hãy nhập chiều rộng hợp lệ!");
+                continue;
+            }
+            height = +prompt("Nhập chiều cao:");
+            if (isNaN(height) || height <= 0) {
+                alert("Hãy nhập chiều cao hợp lệ!");
+            }
+        } while (isNaN(height) || height <= 0 || isNaN(width) || width <= 0);
+        return {width, height}; // phải có return để cập nhập giá trị của hàm
+        // cú pháp object literal
+    }
+
+
+    //chat gpt
+    function btnChangeWidthHeight() {
+        let result = inputWidthHeight(); // result có 2 thuộc tính là width và height
+        let chieuRong = result.width;
+        let chieuCao = result.height;
+
+        rectangle.setWidth(chieuRong); // Cập nhật chiều rộng cho đối tượng rectangle
+        rectangle.setHeight(chieuCao); // Cập nhật chiều cao cho đối tượng rectangle
+        drawRectangle(rectangle.getWidth(), rectangle.getHeight()); // Vẽ lại hình chữ nhật
+        document.getElementById('result').innerHTML += `<br>Sau thay đổi:<br>
+        Chiều dài và chiều cao hình chữ nhật là ${rectangle.getWidth()} và ${rectangle.getHeight()}
+        <br>Diện tích hình chữ nhật là ${rectangle.dienTich()}
+        <br>Chu vi hình chữ nhật là ${rectangle.chuVi()}
+    `;
+    }
+
+</script>
+</body>
+</html>

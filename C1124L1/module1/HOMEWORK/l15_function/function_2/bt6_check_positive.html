@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Positive</title>
+</head>
+<body>
+<script>
+    let number = getValidNumber();
+    if (checkPositiveNumber(number)) {
+        document.write("True!");
+    }else{
+        document.write("False!");
+    }
+
+    function checkPositiveNumber(number) {
+        return number > 0;
+    }
+    function getValidNumber() {
+        let number;
+        do {
+            number = +prompt("Nhập 1 số bất kỳ:");
+            if (isNaN(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number));
+        return number;
+    }
+</script>
+</body>
+</html>
