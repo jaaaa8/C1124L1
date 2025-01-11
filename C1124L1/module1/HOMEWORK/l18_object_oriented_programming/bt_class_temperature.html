@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+<label for="temperature">Nhiệt độ (C): </label>
+<input placeholder="Nhập vào nhiệt độ" id="temperature">
+<button onclick="swapCelciusToF()">To F</button>
+<button onclick="swapCelciusToK()">To K</button>
+<button onclick="showAll()">Hiển thị cả 2</button>
+<p id="result"></p>
+<script>
+    class Temperature {
+        constructor(temperatureC) {
+            this.temperatureC = temperatureC;
+        }
+
+        setTemperature(temperature) {
+            this.temperatureC = temperature;
+        }
+
+        getTemperature() {
+            return this.temperatureC;
+        }
+
+        swapCtoF() {
+            return this.temperatureC * 1.8 + 32;
+        }
+
+        swapCtoK() {
+            return this.temperatureC + 273.15;
+        }
+    }
+
+    let temperature = new Temperature(25);
+    document.getElementById("result").innerHTML = `<br>
+        ${temperature.getTemperature()} độ C sang độ F là ${temperature.swapCtoF()}
+         `;
+    document.getElementById("result").innerHTML += `<br>
+        ${temperature.getTemperature()} độ C sang độ K là ${temperature.swapCtoK()}
+         `;
+
+
+    function getValidNumber() {
+        let number;
+        do {
+            number = +document.getElementById("temperature").value;
+            if (isNaN(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number));
+        return number;
+    }
+
+    function swapCelciusToF() {
+        let temp = getValidNumber();
+        temperature.setTemperature(temp);
+        document.getElementById("result").innerHTML = `
+        ${temperature.getTemperature()} độ C sang độ F là ${temperature.swapCtoF()}
+         `;
+    }
+    function swapCelciusToK() {
+      let temp = getValidNumber();
+      temperature.setTemperature(temp);
+      document.getElementById("result").innerHTML = `<br>
+        ${temperature.getTemperature()} độ C sang độ K là ${temperature.swapCtoK()}
+         `;
+    }
+    function showAll() {
+      let temp = getValidNumber();
+      temperature.setTemperature(temp);
+      document.getElementById("result").innerHTML = `
+        ${temperature.getTemperature()} độ C sang độ F là ${temperature.swapCtoF()}
+         `;
+      document.getElementById("result").innerHTML += `<br>
+        ${temperature.getTemperature()} độ C sang độ K là ${temperature.swapCtoK()}
+         `;
+    }
+</script>
+</body>
+</html>

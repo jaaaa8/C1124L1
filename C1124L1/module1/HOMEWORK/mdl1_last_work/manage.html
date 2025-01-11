@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QUẢN LÝ NGƯỜI YÊU</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            border: 1px solid white;
+            width: 95%;
+            padding: 10px;
+            background-color: lavender;
+            border-radius: 15px;
+        }
+        form{
+            padding: 10px;
+        }
+        th, td{
+            padding: 5px;
+        }
+        .inputGroup{
+            padding: 5px;
+        }
+        .btnSave{
+            background-color: hotpink;
+            border-radius:5px;
+            padding: 5px;
+            color: white;
+            border-color: hotpink;
+        }
+        .btnDelete{
+            background-color: brown;
+            padding:5px;
+            color: white;
+            border-radius: 10px;
+            border-color: brown;
+        }
+        .btnEdit{
+            background-color: cornflowerblue;
+            padding:5px;
+            color: white;
+            border-radius: 10px;
+            border-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+<h2 align="center">Quản lí người yêu <3</h2>
+<form action="" id="loverForm" onsubmit="saveNewLover(); return false;">
+    <div class="inputGroup">
+        <label for="name">Tên: </label>
+        <input type="text" placeholder="Nhập tên người yêu" id="name" required>
+    </div>
+    <div class="inputGroup">
+        <label for="age">Tuổi: </label>
+        <input type="number" placeholder="Nhập tuổi" id="age" required>
+    </div>
+    <div class="inputGroup">
+        <label for="address">Nơi sống: </label>
+        <input type="text" placeholder="Nhập nơi sống" id="address" required>
+    </div>
+    <div class="inputGroup">
+        <label for="hobbies">Sở thích: </label>
+        <input type="text" placeholder="Nhập nơi sống" id="hobbies" required>
+    </div>
+    <div class="inputGroup">
+        <label for="personality">Tính cách: </label>
+        <textarea name="personality" id="personality" required></textarea>
+    </div>
+    <div>
+        <button type="submit" class="btnSave">Lưu</button>
+    </div>
+</form>
+
+
+<br>
+<table border="1" align="center">
+    <thead>
+        <tr bgcolor="#db7093">
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Tuổi</th>
+            <th>Nơi sống</th>
+            <th>Sở thích</th>
+            <th>Tính cách</th>
+            <th>Chỉnh sửa</th>
+        </tr>
+    </thead>
+    <tbody id="tableData"></tbody>
+</table>
+<script>
+    class Lover {
+        constructor(name, age, address, hobbies, personality) {
+            this.name = name;
+            this.age = age;
+            this.address = address;
+            this.hobbies = hobbies;
+            this.personality = personality;
+        }
+    }
+    let girl1 = new Lover('Dua Lipa', 29, "England","Hát và nhảy","Bí ẩn và quyến rũ");
+    let girl2 = new Lover('Billie Eilish', 23, "USA","Nghe nhạc lofi và làm trò dở hơi","Hơi khùng tí");
+    let girl3 = new Lover('Camila Cabello', 27, "Cuba","Thích khiêu vũ","Ngây thơ");
+    let girl4 = new Lover('Ariana Grande', 31, "USA","Nói xấu người yêu cũ","Hơi đanh đá nhưng mà cũng dễ thương");
+    let loverList = [girl1, girl2, girl3, girl4];
+    displayLover();
+    let loverIndexItem = -1;
+
+    function displayLover(){
+        let tbData = document.getElementById("tableData");
+        let data = '';
+        for(let i = 0; i < loverList.length; i++){
+            data += `
+                <tr>
+                    <td align="center">${i + 1}</td>
+                    <td>${loverList[i].name}</td>
+                    <td align="center">${loverList[i].age}</td>
+                    <td>${loverList[i].address}</td>
+                    <td>${loverList[i].hobbies}</td>
+                    <td>${loverList[i].personality}</td>
+                    <td align="center">
+                        <button class="btnEdit" onclick="editLover(${i})">Sửa</button>
+                        <button class="btnDelete" onclick="deleteLover(${i})">Xoá</button>
+                    </td>
+                </tr>
+            `;
+        }
+        tbData.innerHTML = data;
+    }
+
+    function saveNewLover() {
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+        const address = document.getElementById("address").value;
+        const hobbies = document.getElementById("hobbies").value;
+        const personality = document.getElementById("personality").value;
+        if (loverIndexItem !== -1) {
+            loverList[loverIndexItem].name = name;
+            loverList[loverIndexItem].age = age;
+            loverList[loverIndexItem].address = address;
+            loverList[loverIndexItem].hobbies = hobbies;
+            loverList[loverIndexItem].personality = personality;
+        } else {
+            const newLover = new Lover(name, age, address, hobbies, personality);
+            loverList.push(newLover);
+        }
+        displayLover();
+        document.getElementById("loverForm").reset();
+        loverIndexItem = -1;
+    }
+    function deleteLover(item) {
+        if (confirm(`Bạn có muốn xóa người yêu "${loverList[item].name}" này không?`)) {
+            loverList.splice(item, 1);
+            displayLover();
+        }
+    }
+    function editLover(item) {
+        loverIndexItem = item;
+        document.getElementById("name").value = loverList[item].name;
+        document.getElementById("age").value = loverList[item].age;
+        document.getElementById("address").value = loverList[item].address;
+        document.getElementById("hobbies").value = loverList[item].hobbies;
+        document.getElementById("personality").value = loverList[item].personality;
+    }
+</script>
+</body>
+</html>
