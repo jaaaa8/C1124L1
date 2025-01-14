@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>đổi sang nhị phân</title>
+</head>
+<body>
+<script>
+    let number = getValidNumber("Nhập 1 số nguyên bất kỳ:");
+    document.write(`Số đã nhập là ${number}`);
+    let array = findFactorOfN(number);
+    document.write(`<br>Chuyển sang nhị phân ${toBinary(array)}`);
+
+
+
+
+    function toBinary(arr) {
+        let result = '';
+        for(let i = 0; i < arr.length; i++) {
+            result += `${arr[i] % 2}`;
+        }
+        return result || '0';
+    }
+
+    function findFactorOfN(num) {
+        let arr = [];
+        for (let i = 0; i <= num; i++) {
+            if (num % i === 0) {
+                arr.push(i);
+            }
+        }
+        return arr;
+    }
+
+    function getValidNumber(message = "Nhập số lượng phần tử của mảng:") {
+        let number;
+        do {
+            number = +prompt(message);
+            if (isNaN(number) || !Number.isInteger(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number) || !Number.isInteger(number));
+        return number;
+    }
+
+
+    // chat gpt
+    // function changeBinary(num) {
+    //     let result = ''; // Chuỗi lưu kết quả nhị phân
+    //     while (num > 0) {
+    //         result = (num % 2) + result; // Lấy phần dư (0 hoặc 1) và ghép vào trước chuỗi
+    //         num = Math.floor(num / 2); // Chia lấy phần nguyên
+    //     }
+    //     return result || '0'; // Nếu num ban đầu là 0, trả về "0"
+    // }
+    //
+    // // Hàm kiểm tra nhập số hợp lệ
+    // function getValidNumber(message = "Nhập một số nguyên:") {
+    //     let number;
+    //     do {
+    //         number = +prompt(message);
+    //         if (isNaN(number) || !Number.isInteger(number) || number <= 0) {
+    //             alert("Hãy nhập một số nguyên dương hợp lệ!");
+    //         }
+    //     } while (isNaN(number) || !Number.isInteger(number) || number <= 0);
+    //     return number;
+    // }
+    //
+    // // Gọi hàm
+    // let number = getValidNumber("Nhập một số nguyên:");
+    // document.write(`Số đã nhập: ${number}`);
+    // document.write(`<br>Số ${number} chuyển sang nhị phân: ${changeBinary(number)}`);
+
+</script>
+</body>
+</html>

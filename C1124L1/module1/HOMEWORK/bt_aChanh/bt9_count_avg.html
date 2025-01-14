@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let num;
+  do {
+    num = +prompt("Nhập vào giới hạn của mảng:");
+    if (isNaN(num) || !Number.isInteger(num) || num < 0) {
+      alert("Hãy nhập vào 1 số nguyên dương!");
+    }
+  } while (isNaN(num) || !Number.isInteger(num) || num < 0);
+  let array = new Array(num);
+  inputArray(array);
+  outputArray(array);
+  document.write(`<br>Số phần tử có giá trị bằng trung bình cộng của các phần tử trong mảng là ${countAverage(array)}`);
+
+
+
+  function inputArray(arr) {
+    let value;
+    for (let i = 0; i < arr.length; i++) {
+      value = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+      if (isNaN(value)) {
+        alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+        --i;
+        continue;
+      }
+      arr[i] = value;
+    }
+  }
+  function countAverage(arr){
+    let sum = 0,count = 0;
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    for (let i = 0; i < arr.length; i++) {
+      if(arr[i] === sum / arr.length){
+        count++;
+      }
+    }
+    return count;
+  }
+  function outputArray(arr){
+    document.write("<br>Mảng có: ");
+    for(let i=0;i<arr.length;i++){
+      document.write(arr[i]+" ");
+    }
+  }
+</script>
+</body>
+</html>

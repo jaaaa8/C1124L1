@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra ký tự đặc biệt</title>
+</head>
+<body>
+<script>
+    let num;
+    do {
+        num = +prompt("Nhập vào giới hạn của mảng:");
+        if (isNaN(num) || !Number.isInteger(num) || num < 0) {
+            alert("Hãy nhập vào 1 số nguyên dương!");
+        }
+    } while (isNaN(num) || !Number.isInteger(num) || num < 0);
+    let array = new Array(num);
+    inputArrayString(array);
+    outputArray(array);
+    checkNaNAndWord(array);
+    if (array.length === 0) {
+        document.write("<br>Mảng này không có phần tử nào không phải số hoặc chữ.");
+    } else {
+        document.write("<br>Các phần tử không phải số và chữ của mảng: ");
+        outputArray(array);
+    }
+
+
+    function checkNaNAndWord(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (!isNaN(arr[i]) || (arr[i] >= 'A' && arr[i] <= 'Z') || (arr[i] >= 'a' && arr[i] <= 'z')) {
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+    }
+
+    function inputArrayString(arr) {
+        let value;
+        for (let i = 0; i < arr.length; i++) {
+            do {
+                value = prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+                if (value === null || removeSpaces(value) === '') {
+                    alert("Không được để trống hoặc chỉ nhập khoảng trắng! Vui lòng nhập lại.");
+                    --i;
+                    continue;
+                }
+                arr[i] = value;
+            } while (value === null || removeSpaces(value) === '');
+        }
+    }
+
+    function removeSpaces(input) {
+        // /\s+/ đại diện cho bất kỳ ký tự khoảng trắng nào
+        // /g tìm kiếm toàn bộ ký tự như /\s+/ thay vì tìm lần đầu
+        // ,'' thay thế bằng '' tức xoá các ký tự khoảng trắng đi
+        return input.replace(/\s+/g, '');
+    }
+
+    function outputArray(arr) {
+        document.write("<br>Mảng có: ");
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i] + " ");
+        }
+    }
+</script>
+</body>
+</html>

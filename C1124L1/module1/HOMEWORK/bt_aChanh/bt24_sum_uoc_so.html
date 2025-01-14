@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tong uoc so</title>
+</head>
+<body>
+<script>
+  let n = getValidNumber();
+  let array = new Array(n);
+  inputArray(array);
+  outputArray(array);
+  outputArray(sumFactorArray(array));
+
+
+
+
+  function sumFactorArray(arr){
+    let newArr = [];
+    for(let i=0;i<arr.length;i++){
+      newArr.push(sumFactorOfN(arr[i]));
+    }
+    return newArr;
+  }
+
+  function sumFactorOfN(num) {
+    let sum = 0;
+    for (let i = 0; i <= num; i++) {
+      if (num % i === 0) {
+        sum += i;
+      }
+    }
+    return sum;
+  }
+
+  function getValidNumber(message = "Nhập số lượng phần tử của mảng:") {
+    let number;
+    do {
+      number = +prompt(message);
+      if (isNaN(number) || !Number.isInteger(number)) {
+        alert("Hãy nhập giá trị hợp lệ!");
+      }
+    } while (isNaN(number) || !Number.isInteger(number));
+    return number;
+  }
+
+  function inputArray(arr) {
+    let value;
+    for (let i = 0; i < arr.length; i++) {
+      value = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+      if (isNaN(value)) {
+        alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+        --i;
+        continue;
+      }
+      arr[i] = value;
+    }
+  }
+
+  function outputArray(arr) {
+    document.write("<br>Mảng có: ");
+    for (let i = 0; i < arr.length; i++) {
+      document.write(arr[i] + " ");
+    }
+  }
+</script>
+</body>
+</html>

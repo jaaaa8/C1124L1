@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rut gon chuoi</title>
+</head>
+<body>
+<script>
+    let string = getValidString();
+    document.write(`Chuỗi sau khi rút gọn: ${processString(string)}`);
+
+
+    function processString(input) {
+        // Xử lý chuỗi: loại bỏ dấu cách thừa
+        // .trim() để bỏ khoảng trắng đầu và cuối
+        // .replace(/\s+/g, ' ') bỏ những khoảng trắng liền kề bằng 1 khoảng trắng
+
+        input = input.trim().replace(/\s+/g, ' ');
+
+        if (!input.includes(' ')) {
+            return input;
+        }
+
+        // cắt chuỗi tổng thành 1 mảng 1 chiều, cắt dựa theo khoảng cách
+        let word = input.split(' ');
+
+        let result = '';
+        for (let i = 0; i < word.length; i++) {
+            result += word[i][0];
+        }
+        return result;
+    }
+
+    function removeSpaces(input) {
+        // /\s+/: đại diện cho bất kỳ ký tự khoảng trắng nào
+        // /g: tìm kiếm toàn bộ ký tự như /\s+/ thay vì tìm lần đầu
+        // ,'': thay thế bằng '' tức xoá các ký tự khoảng trắng đi
+        return input.replace(/\s+/g, '');
+    }
+
+    function getValidString() {
+        let str;
+        do {
+            str = prompt("Nhập 1 cái gì đó");
+            if (str === null || removeSpaces(str) === '') {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (str === null || removeSpaces(str) === '');
+        return str;
+    }
+</script>
+</body>
+</html>

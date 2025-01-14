@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra số nguyên tố</title>
+</head>
+<body>
+<script>
+    let n = getValidNumber();
+    let array = new Array(n);
+    inputArray(array);
+    outputArray(array);
+    if(checkPrimeArray(array)){
+        document.write("<br>OK");
+    }else{
+        document.write("<br>NO")
+    }
+
+
+
+    function inputArray(arr) {
+        let value;
+        for (let i = 0; i < arr.length; i++) {
+            value = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+            if (isNaN(value)) {
+                alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+                --i;
+                continue;
+            }
+            arr[i] = value;
+        }
+    }
+
+    function checkPrime(num) {
+        if(num <= 1){
+            return false;
+        }
+        for(let i = 2; i <= Math.sqrt(num); i++){
+            if(num % i === 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function getValidNumber() {
+        let number;
+        do {
+            number = +prompt("Nhập số lượng phần tử của mảng:");
+            if (isNaN(number) || !Number.isInteger(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number) || !Number.isInteger(number));
+        return number;
+    }
+
+    function outputArray(arr) {
+        document.write("<br>Mảng có: ");
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i] + " ");
+        }
+    }
+
+    function checkPrimeArray(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if(!checkPrime(arr[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tra ve ky tu in hoa trong chuoi</title>
+</head>
+<body>
+<script>
+  let string = getValidString();
+  document.write(`Chuỗi nhập vào: ${string}`);
+  document.write(`<br>Chuỗi chỉ còn các ký tự viết hoa : ${returnUpperCase(string)}`);
+
+
+  function returnUpperCase(str) {
+    let newStr = '';
+    for (let i = 0; i < str.length; i++) {
+      if(str[i] >= 'A' && str[i] <= 'Z'){
+        newStr += str[i];
+      }
+    }
+    return newStr;
+  }
+  function removeSpaces(input) {
+    // /\s+/ đại diện cho bất kỳ ký tự khoảng trắng nào
+    // /g tìm kiếm toàn bộ ký tự như /\s+/ thay vì tìm lần đầu
+    // ,'' thay thế bằng '' tức xoá các ký tự khoảng trắng đi
+    return input.replace(/\s+/g, '');
+  }
+
+  function getValidString() {
+    let str;
+    do {
+      str = prompt("Nhập 1 cái gì đó");
+      if (str === null || removeSpaces(str) === '') {
+        alert("Hãy nhập giá trị hợp lệ!");
+      }
+    } while (str === null || removeSpaces(str) === '');
+    return str;
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num;
+    do {
+        num = +prompt("Nhập vào giới hạn của mảng:");
+        if (isNaN(num) || !Number.isInteger(num) || num < 0) {
+            alert("Hãy nhập vào 1 số nguyên dương!");
+        }
+    } while (isNaN(num) || !Number.isInteger(num) || num < 0);
+    let array = new Array(num);
+    inputArray(array);
+    outputArray(array);
+    showChinhPhuongArray(array);
+    if (array.length === 0) {
+        document.write("<br>Không có giá trị nào trong mảng là số chính phương!");
+    } else {
+        document.write("<br>Mảng chỉ hiển thị số chính phương: ");
+        outputArray(array);
+    }
+
+
+    function checkChinhPhuong(num) {
+        if (num < 0) {
+            return false;
+        }
+        return Number.isInteger(Math.sqrt(num));
+    }
+
+    function inputArray(arr) {
+        let value;
+        for (let i = 0; i < arr.length; i++) {
+            value = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+            if (isNaN(value)) {
+                alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+                --i;
+                continue;
+            }
+            arr[i] = value;
+        }
+    }
+
+    function outputArray(arr) {
+        document.write("<br>Mảng có: ");
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i] + " ");
+        }
+    }
+
+    function showChinhPhuongArray(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (!checkChinhPhuong(arr[i])) {
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+    }
+</script>
+</body>
+</html>

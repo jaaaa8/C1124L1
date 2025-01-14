@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mảng toàn số</title>
+</head>
+<body>
+<script>
+    let n = getValidNumber();
+    let array = new Array(n);
+    inputArrayString(array);
+    outputArray(array);
+    if(checkNumberArray(array)){
+        document.write("<br>Mảng này là mảng toàn số!");
+    }else{
+        document.write("<br>Mảng này không phải mảng toàn số!")
+    }
+
+
+    function checkNumberArray(arr) {
+        for (let i = 0; i < n; i++) {
+            if (isNaN(arr[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function getValidNumber(message = "Nhập số lượng phần tử của mảng:") {
+        let number;
+        do {
+            number = +prompt(message);
+            if (isNaN(number) || !Number.isInteger(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number) || !Number.isInteger(number));
+        return number;
+    }
+
+    function inputArrayString(arr) {
+        let value;
+        for (let i = 0; i < arr.length; i++) {
+            do {
+                value = prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+                if (value === null || removeSpaces(value) === '') {
+                    alert("Không được để trống hoặc chỉ nhập khoảng trắng! Vui lòng nhập lại.");
+                    --i;
+                    continue;
+                }
+                arr[i] = value;
+            } while (value === null || removeSpaces(value) === '');
+        }
+    }
+
+    function removeSpaces(input) {
+        return input.replace(/\s+/g, '');
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check lowercase or uppercase</title>
+</head>
+<body>
+<script>
+    let string = getValidString();
+    if(checkString(string)){
+        document.write("true");
+    }else{
+        document.write("false");
+    }
+
+    // bảng ASCII
+    // A = 65 => Z = 90
+    // a = 97 => z = 122
+
+
+    function checkString(str) {
+        let upperCount = 0;
+        let lowerCount = 0;
+        for (let i = 0; i < str.length; i++) {
+            let char = str[i];
+            if (char >= 'A' && char <= 'Z') {
+                upperCount++;
+            } else if (char >= 'a' && char <= 'z') {
+                lowerCount++;
+            }
+        }
+        return upperCount === lowerCount;
+    }
+
+    function getValidString() {
+        let str;
+        do {
+            str = prompt("Nhập 1 cái gì đó");
+            if (str === null || removeSpaces(str) === '') {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (str === null || removeSpaces(str) === '');
+        return str;
+    }
+</script>
+</body>
+</html>
