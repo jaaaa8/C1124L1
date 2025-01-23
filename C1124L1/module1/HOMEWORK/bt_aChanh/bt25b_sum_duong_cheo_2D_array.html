@@ -6,61 +6,61 @@
 </head>
 <body>
 <script>
-  let n = getValidNumber("Nhập độ dài của mảng mẹ:");
-  let m = getValidNumber("Nhập độ dài của mảng con:");
-  let array2D = new Array(n);
-  for (let i = 0; i < n; i++) {
-    array2D[i] = new Array(m);
-  }
-  inputArray2D(array2D);
-  outputArray2D(array2D);
-  document.write(`<br>Tổng 2 đường chéo của mảng 2 chiều này là: ${sumDiagonal(array2D)}`);
-
-
-  function sumDiagonal(array2D) {
-    let sum1 = 0,sum2 = 0;
-    for (let i = 0; i < array2D.length; i++) {
-      sum1 += array2D[i][i];
-      sum2 += array2D[i][array2D.length - 1 - i];
+    let n = getValidNumber("Nhập độ dài của mảng mẹ:");
+    let m = getValidNumber("Nhập độ dài của mảng con:");
+    let array2D = new Array(n);
+    for (let i = 0; i < n; i++) {
+        array2D[i] = new Array(m);
     }
-    return sum1+sum2;
-  }
+    inputArray2D(array2D);
+    outputArray2D(array2D);
+    document.write(`<br>Tổng 2 đường chéo của mảng 2 chiều này là: ${sumDiagonal(array2D)}`);
 
-  function getValidNumber(message = "Nhập số lượng phần tử của mảng:") {
-    let number;
-    do {
-      number = +prompt(message);
-      if (isNaN(number) || !Number.isInteger(number)) {
-        alert("Hãy nhập giá trị hợp lệ!");
-      }
-    } while (isNaN(number) || !Number.isInteger(number));
-    return number;
-  }
 
-  function inputArray2D(array2D) {
-    for (let i = 0; i < array2D.length; i++) {
-      for (let j = 0; j < array2D[i].length; j++) {
-        let value;
+    function sumDiagonal(array2D) {
+        let sum1 = 0, sum2 = 0;
+        for (let i = 0; i < array2D.length; i++) {
+            sum1 += array2D[i][i];
+            sum2 += array2D[i][array2D.length - 1 - i];
+        }
+        return sum1 + sum2;
+    }
+
+    function getValidNumber(message = "Nhập số lượng phần tử của mảng:") {
+        let number;
         do {
-          value = +prompt(`Nhập giá trị cho phần tử [${i+1}][${j+1}] (dòng ${i + 1}, giá trị thứ ${j + 1}):`);
-          if (isNaN(value)) {
-            alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
-          }
-        } while (isNaN(value));
-        array2D[i][j] = value;
-      }
+            number = +prompt(message);
+            if (isNaN(number) || !Number.isInteger(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number) || !Number.isInteger(number));
+        return number;
     }
-  }
 
-  function outputArray2D(array2D) {
-    document.write("<br>Mảng có: <br>");
-    for (let i = 0; i < array2D.length; i++) {
-      for (let j = 0; j < array2D[i].length; j++) {
-        document.write(`${array2D[i][j]}&emsp;`);
-      }
-      document.write("<br>");
+    function inputArray2D(array2D) {
+        for (let i = 0; i < array2D.length; i++) {
+            for (let j = 0; j < array2D[i].length; j++) {
+                let value;
+                do {
+                    value = +prompt(`Nhập giá trị cho phần tử [${i + 1}][${j + 1}] (dòng ${i + 1}, giá trị thứ ${j + 1}):`);
+                    if (isNaN(value)) {
+                        alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+                    }
+                } while (isNaN(value));
+                array2D[i][j] = value;
+            }
+        }
     }
-  }
+
+    function outputArray2D(array2D) {
+        document.write("<br>Mảng có: <br>");
+        for (let i = 0; i < array2D.length; i++) {
+            for (let j = 0; j < array2D[i].length; j++) {
+                document.write(`${array2D[i][j]}&emsp;`);
+            }
+            document.write("<br>");
+        }
+    }
 </script>
 </body>
 </html>

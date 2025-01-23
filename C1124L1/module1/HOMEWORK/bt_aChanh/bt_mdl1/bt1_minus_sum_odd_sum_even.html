@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bt1</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = parseInt(prompt("Nhập độ dài của mảng!"));
+        if (n >= 50 || n < 0 || isNaN(n) || !Number.isInteger(n)) {
+            alert("Hãy nhập giá trị số nguyên nhỏ hơn 50!");
+        }
+    } while (n >= 50 || n < 0 || isNaN(n) || !Number.isInteger(n));
+    let array = new Array(n);
+    inputArray(array);
+    outputArray(array);
+    document.write(`Giá trị tổng các phần tử ở vị trí chẵn trừ tổng các phần tử vị trí lẻ là: ${minusSumEvenAndOddLocate(array)}`);
+
+
+    function minusSumEvenAndOddLocate(array) {
+        let sumOdd = 0, sumEven = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (i % 2 === 1) {
+                sumOdd += array[i];
+            } else if (i % 2 === 0) {
+                sumEven += array[i];
+            }
+        }
+        return sumEven - sumOdd;
+    }
+
+    function inputArray(arr) {
+        let value;
+        for (let i = 0; i < arr.length; i++) {
+            value = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+            if (isNaN(value)) {
+                alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+                --i;
+                continue;
+            }
+            arr[i] = value;
+        }
+    }
+
+    function outputArray(arr) {
+        document.write("<br>Mảng có: ");
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i] + " ");
+        }
+    }
+</script>
+</body>
+</html>

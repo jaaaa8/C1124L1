@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trả về mảng toàn fibonacci tăng dần</title>
+</head>
+<body>
+<script>
+    let n = getValidNumber();
+    let array = new Array(n);
+    inputArray(array);
+    outputArray(array);
+    outputArray(`${sortIncrease(newFibonacciArray(array))}`);
+
+
+    function sortIncrease(array) {
+        let temp;
+        for (let i = 0; i < array.length - 1; i++) {
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[i] > array[j]) {
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+        return array;
+    }
+
+    function newFibonacciArray(array) {
+        let newFibonacci = [];
+        for (let i = 0; i < array.length; i++) {
+            if (checkFibonacci(array[i])) {
+                newFibonacci.push(array[i]);
+            }
+        }
+        return newFibonacci;
+    }
+
+    function getValidNumber(message = "Nhập số lượng phần tử của mảng:") {
+        let number;
+        do {
+            number = +prompt(message);
+            if (isNaN(number) || !Number.isInteger(number)) {
+                alert("Hãy nhập giá trị hợp lệ!");
+            }
+        } while (isNaN(number) || !Number.isInteger(number));
+        return number;
+    }
+
+    function inputArray(arr) {
+        let value;
+        for (let i = 0; i < arr.length; i++) {
+            value = +prompt("Nhập vào phần tử thứ " + (i + 1) + " của mảng:");
+            if (isNaN(value)) {
+                alert("Giá trị không hợp lệ. Vui lòng nhập lại.");
+                --i;
+                continue;
+            }
+            arr[i] = value;
+        }
+    }
+
+    function outputArray(arr) {
+        document.write("<br>Mảng có: ");
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i] + " ");
+        }
+    }
+
+    function checkFibonacci(num) {
+        if (num < 0) return false;
+        if (num === 0) return true;
+
+        // một số n thuộc dãy Fibonacci với điều kiện
+        // 5n^2 + 4 = là số chính phương
+        // 5n^2 - 4 = là số chính phương
+
+        return checkChinhPhuong(5 * num * num - 4) || checkChinhPhuong(5 * num * num + 4);
+    }
+
+    function checkChinhPhuong(num) {
+        if (num < 0) {
+            return false;
+        }
+        return Number.isInteger(Math.sqrt(num));
+    }
+</script>
+</body>
+</html>

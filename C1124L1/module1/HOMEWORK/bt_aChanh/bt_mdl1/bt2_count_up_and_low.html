@@ -2,23 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Check lowercase or uppercase</title>
+    <title>đếm số lượng chữ in hoa và in thường</title>
 </head>
 <body>
 <script>
     let string = getValidString();
-    if(checkString(string)){
-        document.write("<br>true");
-    }else{
-        document.write("<br>false");
-    }
-
-    // bảng ASCII
-    // A = 65 => Z = 90
-    // a = 97 => z = 122
+    document.write(string);
+    countUpAndLow(string);
 
 
-    function checkString(str) {
+    function countUpAndLow(str) {
         let upperCount = 0;
         let lowerCount = 0;
         for (let i = 0; i < str.length; i++) {
@@ -29,7 +22,7 @@
                 lowerCount++;
             }
         }
-        return upperCount === lowerCount;
+        document.write(`<br>${upperCount},${lowerCount}`);
     }
 
     function getValidString() {
@@ -42,10 +35,8 @@
         } while (str === null || removeSpaces(str) === '');
         return str;
     }
+
     function removeSpaces(input) {
-        // /\s+/: đại diện cho bất kỳ ký tự khoảng trắng nào
-        // /g: tìm kiếm toàn bộ ký tự như /\s+/ thay vì tìm lần đầu
-        // ,'': thay thế bằng '' tức xoá các ký tự khoảng trắng đi
         return input.replace(/\s+/g, '');
     }
 </script>

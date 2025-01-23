@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COMPUTER</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<form action="" id="computerForm" onsubmit="saveNewComputers(); return false;">
+    <div class="inputGroup">
+        <label for="id">Mã máy: </label>
+        <input type="text" placeholder="Nhập mã máy" id="id" required>
+    </div>
+    <div class="inputGroup">
+        <label for="name">Tên máy: </label>
+        <input type="text" placeholder="Nhập tên máy" id="name" required>
+    </div>
+    <div class="inputGroup">
+        <label for="manufacturerName">Tên hãng sản xuất: </label>
+        <input type="text" placeholder="Nhập hãng sản xuất" id="manufacturerName" required>
+    </div>
+    <div class="inputGroup">
+        <label for="price">Giá: </label>
+        <input type="number" placeholder="Nhập giá" id="price" required>
+    </div>
+    <div>
+        <button type="submit" class="btnSave">Thêm</button>
+    </div>
+</form>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Mã máy</th>
+        <th>Tên máy</th>
+        <th>Tên Hãng sản xuất</th>
+        <th>Giá bán</th>
+    </tr>
+    </thead>
+    <tbody id="tableData">
+
+    </tbody>
+</table>
+<script>
+    class Computer {
+        constructor(id, name, manufacturerName, price) {
+            this.id = id;
+            this.name = name;
+            this.manufacturerName = manufacturerName;
+            this.price = price;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getManufacturerName() {
+            return this.manufacturerName;
+        }
+
+        setManufacturerName(manufacturerName) {
+            this.manufacturerName = manufacturerName;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        toStringComputer() {
+            return `ID: ${this.id}, Name: ${this.name}, Tên hãng: ${this.manufacturerName}, Giá: ${this.price}`;
+        }
+    }
+
+    let computer1 = new Computer("G3", "DELL G3", "DELL", 10000000);
+    let computer2 = new Computer("IdeaPad", "Lenovo Pro", "Lenovo", 7000000);
+    let computer3 = new Computer("Gaming", "MSI Katana", "MSI", 15000000);
+    let computerArr = [computer1, computer2, computer3];
+    displayComputers();
+
+
+    function displayComputers() {
+        let tbData = document.getElementById("tableData");
+        let data = '';
+        for (let i = 0; i < computerArr.length; i++) {
+            data += `
+                <tr>
+                    <td align="center">${i + 1}</td>
+                    <td align="center">${computerArr[i].id}</td>
+                    <td>${computerArr[i].name}</td>
+                    <td align="center">${computerArr[i].manufacturerName}</td>
+                    <td>${computerArr[i].price}</td>
+                </tr>
+            `;
+        }
+        tbData.innerHTML = data;
+    }
+
+    function saveNewComputers() {
+        const name = document.getElementById("name").value;
+        const id = document.getElementById("id").value;
+        const manufacturerName = document.getElementById("manufacturerName").value;
+        const price = parseFloat(document.getElementById("price").value);
+        let computerN = new Computer(id, name, manufacturerName, price);
+        computerArr.push(computerN);
+        displayComputers();
+        document.getElementById("computerForm").reset();
+    }
+
+
+</script>
+</body>
+</html>
