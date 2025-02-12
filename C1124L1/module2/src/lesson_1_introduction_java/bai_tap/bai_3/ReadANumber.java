@@ -8,121 +8,121 @@ public class ReadANumber {
         System.out.println("Nhập 1 số nguyên bất kỳ (giới hạn là có 10 chữ số)!");
         Scanner sc = new Scanner(System.in);
         number = sc.nextLine();
-        String result = "";
+        StringBuilder result = new StringBuilder();
         int tempNum;
         int index = -1;
         int length = number.length();
         if(length == 2){
             tempNum = Integer.parseInt(number.charAt(++index) + "");
             if(tempNum == 1){
-                result += "mười";
+                result.append("mười");
                 int tempNum2 = Integer.parseInt(number.charAt(++index) + "");
                 switch(tempNum2){
                     case 1:
-                        result += " một";
+                        result.append(" một");
                         break;
                     case 2:
-                        result += " hai";
+                        result.append(" hai");
                         break;
                     case 3:
-                        result += " ba";
+                        result.append(" ba");
                         break;
                     case 4:
-                        result += " bốn";
+                        result.append(" bốn");
                         break;
                     case 5:
-                        result += " lăm";
+                        result.append(" lăm");
                         break;
                     case 6:
-                        result += " sau";
+                        result.append(" sau");
                         break;
                     case 7:
-                        result += " bảy";
+                        result.append(" bảy");
                         break;
                     case 8:
-                        result += " tám";
+                        result.append(" tám");
                         break;
                     case 9:
-                        result += " chín";
+                        result.append(" chín");
                         break;
                 }
                 System.out.println(result);
                 return;
             }
         }
-        result = "";
+        result = new StringBuilder();
         index = -1;
         if (length <= 10) {
             while (length > 0) {
                 switch (length) {
                     case 10:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
-                        result += Number(tempNum);
-                        result += " tỷ ";
+                        result.append(Number(tempNum));
+                        result.append(" tỷ ");
                         break;
                     case 9:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
                         if (tempNum == 0) {
                             break;
                         }
-                        result += Number(tempNum);
-                        result += " trăm ";
+                        result.append(Number(tempNum));
+                        result.append(" trăm ");
                         break;
                     case 8:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
                         if (tempNum == 0) {
                             break;
                         }
-                        result += Number(tempNum);
-                        result += " mươi ";
+                        result.append(Number(tempNum));
+                        result.append(" mươi ");
                         break;
                     case 7:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
                         if (tempNum == 0) {
                             break;
                         }
-                        result += Number(tempNum);
-                        result += " triệu ";
+                        result.append(Number(tempNum));
+                        result.append(" triệu ");
                         break;
                     case 6:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
                         if (tempNum == 0) {
                             break;
                         }
-                        result += Number(tempNum);
-                        result += " trăm ";
+                        result.append(Number(tempNum));
+                        result.append(" trăm ");
                         break;
                     case 5:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
                         if (tempNum == 0) {
                             break;
                         }
-                        result += Number(tempNum);
-                        result += " mươi ";
+                        result.append(Number(tempNum));
+                        result.append(" mươi ");
                         break;
                     case 4:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
                         if (tempNum == 0) {
                             break;
                         }
-                        result += Number(tempNum);
-                        result += " nghìn ";
+                        result.append(Number(tempNum));
+                        result.append(" nghìn ");
                         break;
                     case 3:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
                         if (tempNum == 0) {
                             break;
                         }
-                        result += Number(tempNum);
-                        result += " trăm ";
+                        result.append(Number(tempNum));
+                        result.append(" trăm ");
                         break;
                     case 2:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
                         if (tempNum == 0) {
                             break;
                         }
-                        result += Number(tempNum);
-                        result += " mươi ";
+                        result.append(Number(tempNum));
+                        result.append(" mươi ");
                         break;
                     case 1:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
@@ -130,10 +130,10 @@ public class ReadANumber {
                             break;
                         }
                         if((tempNum = Integer.parseInt(number.charAt(--index) + "")) == 0){
-                            result += "lẻ ";
+                            result.append("lẻ ");
                         }
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
-                        result += Number(tempNum);
+                        result.append(Number(tempNum));
                         break;
                 }
                 length--;
