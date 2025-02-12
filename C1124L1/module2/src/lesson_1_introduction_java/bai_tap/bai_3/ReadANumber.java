@@ -12,6 +12,8 @@ public class ReadANumber {
         int tempNum;
         int index = -1;
         int length = number.length();
+        int tempN1;
+        int tempN2;
         if(length == 2){
             tempNum = Integer.parseInt(number.charAt(++index) + "");
             if(tempNum == 1){
@@ -67,14 +69,46 @@ public class ReadANumber {
                         }
                         result.append(Number(tempNum));
                         result.append(" trăm ");
+                        if (index + 1 < number.length()) {
+                            tempN1 = Integer.parseInt(number.charAt(index + 1) + "");
+                        } else {
+                            tempN1 = -1; // Giá trị không hợp lệ
+                        }
+
+                        if (index + 2 < number.length()) {
+                            tempN2 = Integer.parseInt(number.charAt(index + 2) + "");
+                        } else {
+                            tempN2 = -1; // Giá trị không hợp lệ
+                        }
+                        if (tempN1 == 0 && tempN2 == 0) {
+                            result.append("triệu ");
+                        }
                         break;
                     case 8:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
                         if (tempNum == 0) {
                             break;
                         }
-                        result.append(Number(tempNum));
-                        result.append(" mươi ");
+                        if(Number(tempNum).equals("một")){
+                            result.append(" mười ");
+                        }else{
+                            result.append(Number(tempNum));
+                            result.append(" mươi ");
+                        }
+                        if (index + 1 < number.length()) {
+                            tempN1 = Integer.parseInt(number.charAt(index + 1) + "");
+                        } else {
+                            tempN1 = -1;
+                        }
+
+                        if (index + 2 < number.length()) {
+                            tempN2 = Integer.parseInt(number.charAt(index + 2) + "");
+                        } else {
+                            tempN2 = -1;
+                        }
+                        if (tempN1 == 0 && tempN2 == 0) {
+                            result.append("triệu ");
+                        }
                         break;
                     case 7:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
@@ -91,14 +125,46 @@ public class ReadANumber {
                         }
                         result.append(Number(tempNum));
                         result.append(" trăm ");
+                        if (index + 1 < number.length()) {
+                            tempN1 = Integer.parseInt(number.charAt(index + 1) + "");
+                        } else {
+                            tempN1 = -1;
+                        }
+
+                        if (index + 2 < number.length()) {
+                            tempN2 = Integer.parseInt(number.charAt(index + 2) + "");
+                        } else {
+                            tempN2 = -1;
+                        }
+                        if (tempN1 == 0 && tempN2 == 0) {
+                            result.append("nghìn ");
+                        }
                         break;
                     case 5:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
                         if (tempNum == 0) {
                             break;
                         }
-                        result.append(Number(tempNum));
-                        result.append(" mươi ");
+                        if(Number(tempNum).equals("một")){
+                            result.append(" mười ");
+                        }else{
+                            result.append(Number(tempNum));
+                            result.append(" mươi ");
+                        }
+                        if (index + 1 < number.length()) {
+                            tempN1 = Integer.parseInt(number.charAt(index + 1) + "");
+                        } else {
+                            tempN1 = -1;
+                        }
+
+                        if (index + 2 < number.length()) {
+                            tempN2 = Integer.parseInt(number.charAt(index + 2) + "");
+                        } else {
+                            tempN2 = -1;
+                        }
+                        if (tempN1 == 0 && tempN2 == 0) {
+                            result.append("nghìn ");
+                        }
                         break;
                     case 4:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
@@ -121,8 +187,12 @@ public class ReadANumber {
                         if (tempNum == 0) {
                             break;
                         }
-                        result.append(Number(tempNum));
-                        result.append(" mươi ");
+                        if(Number(tempNum).equals("một")){
+                            result.append(" mười ");
+                        }else{
+                            result.append(Number(tempNum));
+                            result.append(" mươi ");
+                        }
                         break;
                     case 1:
                         tempNum = Integer.parseInt(number.charAt(++index) + "");
