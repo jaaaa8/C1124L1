@@ -7,7 +7,6 @@ public class StopWatch {
     private long endTime;
 
     public StopWatch() {
-        this.startTime = System.currentTimeMillis();
     }
 
     public void start() {

@@ -27,7 +27,6 @@ public class DeleteElementInArray {
     }
     public static int[] deleteElementByValueInArray(int[] arr, int element) {
         int index = -1;
-
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == element) {
                 index = i;
@@ -36,19 +35,13 @@ public class DeleteElementInArray {
         }
         if (index == -1) return null;
 
-        // Tạo một mảng mới với kích thước nhỏ hơn 1 phần tử
         int[] newArr = new int[arr.length - 1];
-
-        // Sao chép các phần tử trước index
         for (int i = 0; i < index; i++) {
             newArr[i] = arr[i];
         }
-
-        // Sao chép các phần tử sau index
         for (int i = index; i < newArr.length; i++) {
             newArr[i] = arr[i + 1];
         }
-
         return newArr;
     }
 
