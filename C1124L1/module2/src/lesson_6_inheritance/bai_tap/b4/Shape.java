@@ -9,7 +9,6 @@ public class Shape {
         this.color = color;
     }
 
-
     public String getColor() {
         return color;
     }

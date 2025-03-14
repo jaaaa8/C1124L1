@@ -1,8 +1,6 @@
 package bt_anh_hai;
 
 
-import lesson_3_array.thuc_hanh.bt_1.ReverseArray;
-
 public class B6FindChar {
     public static char[] findDuplicateChar(String input) {
         StringBuilder str = new StringBuilder();

@@ -85,34 +85,34 @@ public class B1AppearanceInteger {
         ReverseArray.outputArray(arr);
     }
 
-    public static int[] inputArrayByWhile() {
-        Scanner sc = new Scanner(System.in);
-        ArrayList<Integer> list = new ArrayList<>();
-
-        System.out.println("Nhập các số (Nhấn Enter để dừng):");
-
-        while (true) {
-            String input = sc.nextLine(); // Đọc từng dòng nhập vào
-
-            if (input.isEmpty()) { // Nếu nhập rỗng thì dừng
-                break;
-            }
-
-            try {
-                list.add(Integer.parseInt(input)); // Chuyển chuỗi thành số nguyên
-            } catch (NumberFormatException e) {
-                System.out.println("Vui lòng nhập số hợp lệ!");
-            }
-        }
-
-        // Chuyển ArrayList thành mảng int[]
-        int[] arr = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            arr[i] = list.get(i);
-        }
-
-        return arr;
-    }
+//    public static int[] inputArrayByWhile() {
+//        Scanner sc = new Scanner(System.in);
+//        ArrayList<Integer> list = new ArrayList<>();
+//
+//        System.out.println("Nhập các số (Nhấn Enter để dừng):");
+//
+//        while (true) {
+//            String input = sc.nextLine(); // Đọc từng dòng nhập vào
+//
+//            if (input.isEmpty()) { // Nếu nhập rỗng thì dừng
+//                break;
+//            }
+//
+//            try {
+//                list.add(Integer.parseInt(input)); // Chuyển chuỗi thành số nguyên
+//            } catch (NumberFormatException e) {
+//                System.out.println("Vui lòng nhập số hợp lệ!");
+//            }
+//        }
+//
+//        // Chuyển ArrayList thành mảng int[]
+//        int[] arr = new int[list.size()];
+//        for (int i = 0; i < list.size(); i++) {
+//            arr[i] = list.get(i);
+//        }
+//
+//        return arr;
+//    }
 
     public static void main(String[] args) {
         int[] a = inputArray();
