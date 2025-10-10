@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/lesson_10_data_structure_list" isTestSource="false" packagePrefix="lesson_10_ds_list" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_12_data_structure_java_collection_framework" isTestSource="false" packagePrefix="lesson_12_ds_java_collection_framework" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
