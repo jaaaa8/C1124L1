@@ -2,12 +2,14 @@ package org.example;
 
 import okhttp3.*;
 import com.google.gson.*;
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
     private static final String API_URL = "http://localhost:11434/api/chat";
-    private static final String MODEL = "phi3"; // hoặc "llama3", "mistral", ...
+    private static final String MODEL = "aya:8b";
 
     public static void main(String[] args) throws IOException {
         OkHttpClient client = new OkHttpClient.Builder()
@@ -26,17 +28,7 @@ public class Main {
             String userInput = scanner.nextLine();
             if (userInput.equalsIgnoreCase("exit")) break;
 
-            JsonObject json = new JsonObject();
-            json.addProperty("model", MODEL);
-
-            JsonArray messages = new JsonArray();
-            JsonObject message = new JsonObject();
-            message.addProperty("role", "user");
-            message.addProperty("content", userInput);
-            messages.add(message);
-
-            json.add("messages", messages);
-            json.addProperty("stream", false); // ⚡ quan trọng: tắt stream
+            JsonObject json = getJsonObject(userInput);
 
             RequestBody body = RequestBody.create(
                     json.toString(),
@@ -66,5 +58,27 @@ public class Main {
         }
 
         scanner.close();
+    }
+
+    @NotNull
+    private static JsonObject getJsonObject(String userInput) {
+        JsonObject json = new JsonObject();
+        json.addProperty("model", MODEL);
+
+        JsonArray messages = new JsonArray();
+
+        JsonObject system = new JsonObject();
+        system.addProperty("role", "system");
+        system.addProperty("content", "Bạn là một trợ lý AI nói tiếng Việt, trả lời ngắn gọn và tự nhiên.");
+        messages.add(system);
+
+        JsonObject message = new JsonObject();
+        message.addProperty("role", "user");
+        message.addProperty("content", userInput);
+        messages.add(message);
+
+        json.add("messages", messages);
+        json.addProperty("stream", false); // ⚡ quan trọng: tắt stream
+        return json;
     }
 }
