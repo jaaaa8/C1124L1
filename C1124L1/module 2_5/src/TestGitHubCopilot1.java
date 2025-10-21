@@ -3,7 +3,7 @@ import java.util.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestGitHubCopilot {
+public class TestGitHubCopilot1 {
 
     // Approach 1: use a HashSet to detect duplicates while iterating
     public static boolean containsDuplicateSet(int[] nums) {
