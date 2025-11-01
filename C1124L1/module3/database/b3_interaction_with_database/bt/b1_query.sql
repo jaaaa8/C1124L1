@@ -1,5 +1,5 @@
-create database if not exists b2_query_std_management;
-use b2_query_std_management;
+create database if not exists b1_query_std_management;
+use b1_query_std_management;
 
 create table Class(
 id int primary key auto_increment,
@@ -60,23 +60,27 @@ insert into Mark (sub_id,student_id,mark,exam_time) values
 (2, 1, 12, 1);
 select * from Mark;
 
--- hien thi ds cac sv
+-- lay ra hv co ten bat dau ban H
+select * from Student
+where name like 'H%';
+
+-- lay ra lop hoc co thoi gian bat dau la thang 12
+select name,month(start_date) as start_month from Class 
+where month(start_date) = 12;
+
+-- lay ra tat ca cac lop hoc co credit tu 3-5
+select * from Subject
+where credit >= 3 and credit <=5;
+
+-- thay doi class_id cua sv 'Hung' thanh 2
+update Student
+set class_id = 2
+where name = 'Hung'
+limit 5; -- giới hạn bản ghi tác động đến là 5
 select * from Student;
 
--- hien thi ds cac sv dang hoc
-select * from Student where status = true;
-
--- hien thi cac mon hoc co thoi gian nho hon 10 gio
-select * from Subject where credit <= 10;
-
--- hien thi danh sach cac hoc vien lop A1
-select c.name as class_name, s.name as student_name, s.id
-from Class c left join Student s on c.id = s.class_id
-where c.name = 'A1';
-
--- hien thi danh sach diem mon CF cua sv
-select sub.name as subject_name, s.name as student_name, m.mark
-from Student s join Mark m on s.id = m.student_id join Subject sub on m.sub_id = sub.id
-where sub.name = 'CF';
-
-
+-- sap xep student_name, sub_name, mark giam dan theo mark, neu trung thi sap xep theo ten
+select s.name,sub.name,m.mark  from Mark m 
+join Student s on m.student_id = s.id
+join Subject sub on m.sub_id = sub.id
+order by m.mark desc, s.name asc;
