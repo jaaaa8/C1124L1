@@ -9,9 +9,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>DETAIL</title>
 </head>
 <body>
-
+<a href="${pageContext.request.contextPath}/products?action=list">BACK TO LIST</a>
+<h1>
+    <c:out value="${product.name}"/>
+</h1>
+<h4>
+    <c:out value="Price: ${product.price}"/>
+</h4>
+<h4>
+    <c:out value="Category: ${product.category}"/>
+</h4>
+<h4>
+    <c:out value="Quantity: ${product.quantity}"/>
+</h4>
+<h4>
+    <c:out value="Discount: ${product.discount}"/>
+</h4>
 </body>
 </html>

@@ -10,4 +10,5 @@ public interface IProductRepository {
     boolean update(Product newProduct);
     boolean add(Product product);
     Product findById(int id);
+    int size();
 }

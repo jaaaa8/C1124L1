@@ -9,9 +9,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>DELETE</title>
 </head>
 <body>
+<a href="${pageContext.request.contextPath}/products?action=list">BACK TO LIST</a>
 
+<br><br>
+<form method="post">
+    <input type="hidden" name="action" value="delete">
+    <input type="hidden" name="id" value="${product.id}">
+    Are you sure you want to delete the product: <strong>${product.name}</strong>
+    <br><br>
+    <button type="submit">Yes, Delete</button>
+</form>
 </body>
 </html>
