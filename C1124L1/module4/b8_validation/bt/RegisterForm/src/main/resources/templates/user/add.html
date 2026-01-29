@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body>
+
+<h2>Add New User</h2>
+
+<form th:action="@{/user/add}"
+      th:object="${user}"
+      method="post">
+
+    <div>
+        <label>First Name</label><br>
+        <input type="text" th:field="*{firstName}">
+        <span th:if="${#fields.hasErrors('firstName')}"
+              th:errors="*{firstName}"></span>
+    </div>
+
+    <div>
+        <label>Last Name</label><br>
+        <input type="text" th:field="*{lastName}">
+        <span th:if="${#fields.hasErrors('lastName')}"
+              th:errors="*{lastName}"></span>
+    </div>
+
+    <div>
+        <label>Email</label><br>
+        <input type="text" th:field="*{email}">
+        <span th:if="${#fields.hasErrors('email')}"
+              th:errors="*{email}"></span>
+    </div>
+
+    <div>
+        <label>Phone Number</label><br>
+        <input type="text" th:field="*{phoneNumber}">
+        <span th:if="${#fields.hasErrors('phoneNumber')}"
+              th:errors="*{phoneNumber}"></span>
+    </div>
+
+    <div>
+        <label>Age</label><br>
+        <input type="number" th:field="*{age}">
+        <span th:if="${#fields.hasErrors('age')}"
+              th:errors="*{age}"></span>
+    </div>
+
+    <button type="submit">Save</button>
+    <a th:href="@{/user}">Back</a>
+</form>
+
+</body>
+</html>

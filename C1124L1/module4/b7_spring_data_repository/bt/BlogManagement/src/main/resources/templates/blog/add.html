@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Blog</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f8; }
+        .container { width: 50%; margin: 40px auto; background: white; padding: 25px; border-radius: 8px; }
+        h1 { text-align: center; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        textarea { height: 120px; }
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            width: 100%;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 6px;
+        }
+        a { display: block; margin-top: 15px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Add New Blog</h1>
+
+    <form th:action="@{/blogs/add}" th:object="${blog}" method="post">
+        <label>Title</label>
+        <input type="text" th:field="*{title}" required>
+
+        <label>Author</label>
+        <input type="text" th:field="*{author}" required>
+
+        <label>Description</label>
+        <input type="text" th:field="*{description}" required>
+
+        <label>Content</label>
+        <textarea th:field="*{content}" required></textarea>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <a th:href="@{/blogs}">⬅ Back to list</a>
+</div>
+
+</body>
+</html>
