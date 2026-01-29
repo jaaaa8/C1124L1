@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Category List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+<div class="container mt-4 category-box">
+  <div class="d-flex justify-content-between mb-3">
+    <h4>Category List</h4>
+    <a th:href="@{/categories/add}" class="btn btn-success">+ Add Category</a>
+  </div>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <th width="180">Action</th>
+    </tr>
+    <tr th:each="c : ${categoryList}">
+      <td th:text="${c.name}"></td>
+      <td>
+        <a th:href="@{/categories/{id}/edit(id=${c.id})}" class="btn btn-warning btn-sm">Edit</a>
+        <a th:href="@{/categories/{id}/delete(id=${c.id})}"
+           onclick="return confirm('Delete?')"
+           class="btn btn-danger btn-sm">Delete</a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>
