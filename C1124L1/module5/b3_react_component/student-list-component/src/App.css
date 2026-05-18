@@ -1,0 +1,9 @@
+/* Tạo viền đôi cho toàn bộ bảng và các ô bên trong */
+.table-double-border {
+  border: 2px double #141515 !important; /* Viền ngoài của bảng */
+}
+
+.table-double-border th,
+.table-double-border td {
+  border: 2px double #090a0a !important; /* Viền của từng ô */
+}
