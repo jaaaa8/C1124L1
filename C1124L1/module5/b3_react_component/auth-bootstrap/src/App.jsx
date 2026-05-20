@@ -48,27 +48,53 @@ class App extends Component {
   render() {
     const { isLoggedIn, form } = this.state
     if (isLoggedIn) return (<Home onLogOut={this.handleLogOut} />)
+
     return (
-      <div className="container d-flex align-items-center text-center">
-        <div className="form-signin">
+      <div className="container-fluid d-flex justify-content-center align-items-center text-center min-vh-100 bg-light">
+        
+        <div className="form-signin bg-white p-4 p-md-5 rounded-4 shadow" style={{ maxWidth: '400px', width: '100%' }}>
           <form>
             <img className="mb-4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/1280px-2023_Facebook_icon.svg.png?utm_source=vi.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="" width="72" height="57" />
-            <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+            <h1 className="h3 mb-4 fw-normal">Please sign in</h1>
+
             <div className="form-floating">
-              <input className="form-control email" type="email" name="email" placeholder="name@example.com" value={form.email} onChange={this.handleChange} />
-              <label>Email address</label>
+              <input
+                id="floatingEmail"
+                className="form-control email"
+                type="email"
+                name="email"
+                placeholder="name@example.com"
+                value={form.email}
+                onChange={this.handleChange}
+              />
+              <label htmlFor="floatingEmail">Email address</label>
             </div>
-            <div className="form-floating">
-              <input className="form-control password" type="password" name="password" placeholder="Password" value={form.password} onChange={this.handleChange} />
-              <label>Password</label>
+            <div className="form-floating mt-3">
+              <input
+                id="floatingPassword"
+                className="form-control password"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={form.password}
+                onChange={this.handleChange}
+              />
+              <label htmlFor="floatingPassword">Password</label>
             </div>
-            <div className="checkbox mb-3">
+
+            <div className="checkbox mb-4 mt-3 text-start">
               <label>
-                <input type="checkbox" value={form.isRemember} onChange={this.handleChangeCheckbox} /> Remember me
+                <input
+                  type="checkbox"
+                  className="me-2"
+                  checked={form.isRemember}
+                  onChange={this.handleChangeCheckbox}
+                /> Remember me
               </label>
             </div>
-            <button className="w-100 btn btn-lg btn-primary" type="button" onClick={this.handleSubmit} >Sign in</button>
-            <p className="mt-5 mb-3 text-muted">© 2017–2026</p>
+
+            <button className="w-100 btn btn-lg btn-primary fw-bold" type="button" onClick={this.handleSubmit}>Sign in</button>
+            <p className="mt-5 mb-0 text-muted">© 2017–2026</p>
           </form>
         </div>
       </div>
