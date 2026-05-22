@@ -1,0 +1,29 @@
+.dynamic-container {
+  /* 1. Tạo viền hình vuông/chữ nhật */
+  border: 2px solid #2c3e50;
+
+  /* 2. Ép container vừa khít với phần tử dài nhất bên trong */
+  width: fit-content;
+
+  /* Cách thay thế nếu không dùng width: fit-content */
+  /* display: inline-block; */
+  /* display: inline-flex; */
+
+  /* Định dạng thêm cho đẹp (không bắt buộc) */
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  /* Có thể bỏ nếu muốn góc vuông sắc cạnh */
+}
+
+.trideptrai {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;             /* Khoảng cách giữa các hàng */
+  width: fit-content;    /* Bo sát viền theo phần tử dài nhất */
+  padding: 20px;
+  border-radius: 5px;
+}
+h2{
+  margin: '10px 0 0 0';
+}
