@@ -1,0 +1,36 @@
+{
+  "students": [
+    {
+      "id": 2,
+      "name": "hai ",
+      "gender": false,
+      "class": {
+        "id": 2,
+        "name": "C05"
+      }
+    },
+    {
+      "name": "chanh",
+      "gender": true,
+      "class": {
+        "id": 1,
+        "name": "C03"
+      },
+      "id": 3
+    }
+  ],
+  "classes": [
+    {
+      "id": 1,
+      "name": "C03"
+    },
+    {
+      "id": 2,
+      "name": "C05"
+    },
+    {
+      "id": 3,
+      "name": "C10"
+    }
+  ]
+}

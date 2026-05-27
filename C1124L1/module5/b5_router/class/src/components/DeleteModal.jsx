@@ -7,10 +7,18 @@ const DeleteModal = ({ isShow, deleteStudent, closeModal, setReloading }) => {
         closeModal();
     }
     const handleDelete = () => {
-        deleteById(deleteStudent.id);
-        console.log(getAll())
-        closeModal();
-        setReloading(pre => !pre);  
+        const fetchData = async () => {
+            let isSuccess = await deleteById(deleteStudent.id);
+            if (isSuccess) {
+                setReloading(pre => !pre);
+                toast.success("Xoá thành công")
+            } else {
+                toast.error("Xoá thất bại")
+            }
+            closeModal();
+        };
+        fetchData();
+
     }
     return (
         <>
