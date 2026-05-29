@@ -1,0 +1,46 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Nguyen Van A",
+      "gender": false,
+      "department": {
+        "id": "1",
+        "name": "Phòng IT"
+      }
+    },
+    {
+      "id": "E1UrTckS4C4",
+      "name": "Trần Phước Trí",
+      "gender": true,
+      "department": {
+        "id": "1",
+        "name": "Phòng IT"
+      }
+    },
+    {
+      "id": "wKfJcCPaMMY",
+      "name": "Muong Thanh Hotel",
+      "gender": true,
+      "department": {
+        "id": "1",
+        "name": "Phòng IT"
+      }
+    }
+  ],
+  "departments": [
+    {
+      "id": "1",
+      "name": "Phòng IT"
+    },
+    {
+      "id": "2",
+      "name": "Phòng Nhân Sự"
+    },
+    {
+      "id": "3",
+      "name": "Phòng Kế Toán"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

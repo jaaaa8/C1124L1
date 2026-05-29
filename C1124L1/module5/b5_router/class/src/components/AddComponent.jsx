@@ -5,7 +5,6 @@ import {Button} from "react-bootstrap";
 import {addNew, getAll} from "../service/studentService.js";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import * as Yup from "yup";
 
 const AddComponent = () => {

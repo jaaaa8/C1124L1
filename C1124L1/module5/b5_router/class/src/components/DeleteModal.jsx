@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 import { Modal, Button } from "react-bootstrap";
 import { deleteById, getAll } from "../service/studentService.js";
 

@@ -9,6 +9,7 @@ import {Route, Routes} from "react-router-dom";
 import HomeComponent from "./components/HomeComponent.jsx";
 import AddComponent from "./components/AddComponent.jsx";
 import {ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 
